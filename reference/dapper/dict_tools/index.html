@@ -1,0 +1,3308 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.14">
+    
+    
+      
+        <title>Dict Tools - DAPPER</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.d3202873.min.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ff0a5ce4.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#4cae4f">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="green" data-md-color-accent="lightgreen">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-dapperdict_tools" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../../.." title="DAPPER" class="md-header-nav__button md-logo" aria-label="DAPPER">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            DAPPER
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Dict Tools
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/nansencenter/DAPPER/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    DAPPER
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="DAPPER" class="md-nav__button md-logo" aria-label="DAPPER">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    DAPPER
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/nansencenter/DAPPER/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    DAPPER
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Reference
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Reference" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" checked>
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Dapper
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Dapper" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        <span class="md-nav__icon md-icon"></span>
+        Dapper
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../admin/" title="Admin" class="md-nav__link">
+      Admin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../data_management/" title="Data Management" class="md-nav__link">
+      Data Management
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Dict Tools
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="Dict Tools" class="md-nav__link md-nav__link--active">
+      Dict Tools
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complement" class="md-nav__link">
+    complement
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep_getattr" class="md-nav__link">
+    deep_getattr
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep_hasattr" class="md-nav__link">
+    deep_hasattr
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flexcomp" class="md-nav__link">
+    flexcomp
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get0" class="md-nav__link">
+    get0
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intersect" class="md-nav__link">
+    intersect
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prodct" class="md-nav__link">
+    prodct
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transpose_dict_of_lists" class="md-nav__link">
+    transpose_dict_of_lists
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transpose_dicts" class="md-nav__link">
+    transpose_dicts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transpose_list_of_dicts" class="md-nav__link">
+    transpose_list_of_dicts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transpose_lists" class="md-nav__link">
+    transpose_lists
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transps" class="md-nav__link">
+    transps
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aligneddict" class="md-nav__link">
+    AlignedDict
+  </a>
+  
+    <nav class="md-nav" aria-label="AlignedDict">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ancestors-in-mro" class="md-nav__link">
+    Ancestors (in MRO)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#descendants" class="md-nav__link">
+    Descendants
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clear" class="md-nav__link">
+    clear
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy" class="md-nav__link">
+    copy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fromkeys" class="md-nav__link">
+    fromkeys
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    get
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#items" class="md-nav__link">
+    items
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keys" class="md-nav__link">
+    keys
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pop" class="md-nav__link">
+    pop
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#popitem" class="md-nav__link">
+    popitem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdefault" class="md-nav__link">
+    setdefault
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update" class="md-nav__link">
+    update
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#values" class="md-nav__link">
+    values
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dotdict" class="md-nav__link">
+    DotDict
+  </a>
+  
+    <nav class="md-nav" aria-label="DotDict">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ancestors-in-mro_1" class="md-nav__link">
+    Ancestors (in MRO)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#descendants_1" class="md-nav__link">
+    Descendants
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-variables" class="md-nav__link">
+    Class variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_1" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clear_1" class="md-nav__link">
+    clear
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy_1" class="md-nav__link">
+    copy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fromkeys_1" class="md-nav__link">
+    fromkeys
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_1" class="md-nav__link">
+    get
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#items_1" class="md-nav__link">
+    items
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keys_1" class="md-nav__link">
+    keys
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pop_1" class="md-nav__link">
+    pop
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#popitem_1" class="md-nav__link">
+    popitem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdefault_1" class="md-nav__link">
+    setdefault
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update_1" class="md-nav__link">
+    update
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#values_1" class="md-nav__link">
+    values
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#niceprint" class="md-nav__link">
+    NicePrint
+  </a>
+  
+    <nav class="md-nav" aria-label="NicePrint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descendants_2" class="md-nav__link">
+    Descendants
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-variables_1" class="md-nav__link">
+    Class variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../dpr_config/" title="Dpr Config" class="md-nav__link">
+      Dpr Config
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../stats/" title="Stats" class="md-nav__link">
+      Stats
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#variables" class="md-nav__link">
+    Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#complement" class="md-nav__link">
+    complement
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep_getattr" class="md-nav__link">
+    deep_getattr
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep_hasattr" class="md-nav__link">
+    deep_hasattr
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flexcomp" class="md-nav__link">
+    flexcomp
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get0" class="md-nav__link">
+    get0
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intersect" class="md-nav__link">
+    intersect
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prodct" class="md-nav__link">
+    prodct
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transpose_dict_of_lists" class="md-nav__link">
+    transpose_dict_of_lists
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transpose_dicts" class="md-nav__link">
+    transpose_dicts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transpose_list_of_dicts" class="md-nav__link">
+    transpose_list_of_dicts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transpose_lists" class="md-nav__link">
+    transpose_lists
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transps" class="md-nav__link">
+    transps
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+    <nav class="md-nav" aria-label="Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aligneddict" class="md-nav__link">
+    AlignedDict
+  </a>
+  
+    <nav class="md-nav" aria-label="AlignedDict">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ancestors-in-mro" class="md-nav__link">
+    Ancestors (in MRO)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#descendants" class="md-nav__link">
+    Descendants
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clear" class="md-nav__link">
+    clear
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy" class="md-nav__link">
+    copy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fromkeys" class="md-nav__link">
+    fromkeys
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    get
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#items" class="md-nav__link">
+    items
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keys" class="md-nav__link">
+    keys
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pop" class="md-nav__link">
+    pop
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#popitem" class="md-nav__link">
+    popitem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdefault" class="md-nav__link">
+    setdefault
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update" class="md-nav__link">
+    update
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#values" class="md-nav__link">
+    values
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dotdict" class="md-nav__link">
+    DotDict
+  </a>
+  
+    <nav class="md-nav" aria-label="DotDict">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ancestors-in-mro_1" class="md-nav__link">
+    Ancestors (in MRO)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#descendants_1" class="md-nav__link">
+    Descendants
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-variables" class="md-nav__link">
+    Class variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods_1" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clear_1" class="md-nav__link">
+    clear
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy_1" class="md-nav__link">
+    copy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fromkeys_1" class="md-nav__link">
+    fromkeys
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_1" class="md-nav__link">
+    get
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#items_1" class="md-nav__link">
+    items
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keys_1" class="md-nav__link">
+    keys
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pop_1" class="md-nav__link">
+    pop
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#popitem_1" class="md-nav__link">
+    popitem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdefault_1" class="md-nav__link">
+    setdefault
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update_1" class="md-nav__link">
+    update
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#values_1" class="md-nav__link">
+    values
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#niceprint" class="md-nav__link">
+    NicePrint
+  </a>
+  
+    <nav class="md-nav" aria-label="NicePrint">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descendants_2" class="md-nav__link">
+    Descendants
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class-variables_1" class="md-nav__link">
+    Class variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/nansencenter/DAPPER/edit/master/reference/dapper/dict_tools.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="module-dapperdict_tools">Module dapper.dict_tools</h1>
+<p>Tools for working with dicts.</p>
+<p>Bonus: also some list tools.</p>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="sd">&quot;&quot;&quot;Tools for working with dicts.</span>
+
+<span class="sd">Bonus: also some list tools.&quot;&quot;&quot;</span>
+
+<span class="c1"># TODO 9</span>
+
+<span class="c1"># - Make pip package, answer SO.com questions about</span>
+
+<span class="c1">#   https://www.google.com/search?q=python+aligned+dict&amp;oq=python+aligned+dict</span>
+
+<span class="kn">import</span> <span class="nn">itertools</span>
+
+<span class="kn">import</span> <span class="nn">shutil</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="c1"># Since textwrap() only treats strings, while pprint is python-aware,</span>
+
+<span class="c1"># I would have preferred pprint.pformat(width=lw,compact=True,sort_dicts=False),</span>
+
+<span class="c1"># but pprint refuses to use my repr.</span>
+
+<span class="c1"># It also could mess up my recursion guard, which inserts &quot;&lt;Recursion...&gt;&quot;,</span>
+
+<span class="c1"># because it tests for x.startswith(&quot;&lt;&quot;).</span>
+
+<span class="kn">import</span> <span class="nn">textwrap</span>
+
+<span class="kn">from</span> <span class="nn">_thread</span> <span class="kn">import</span> <span class="n">get_ident</span>
+
+<span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">get0</span><span class="p">(</span><span class="n">dct</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;Get first value.&quot;&quot;&quot;</span>
+
+    <span class="c1"># Bad?: dct[list(dct.keys())[0]]</span>
+
+    <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">dct</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+
+<span class="c1"># TODO 4: rm?</span>
+
+<span class="k">def</span> <span class="nf">flexcomp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">criteria</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;Compare in various ways.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">_compare</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+
+        <span class="c1"># Callable (condition) compare</span>
+
+        <span class="k">try</span><span class="p">:</span>
+
+            <span class="k">return</span> <span class="n">y</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+
+            <span class="k">pass</span>
+
+        <span class="c1"># Regex compare -- should be compiled on the outside</span>
+
+        <span class="k">try</span><span class="p">:</span>
+
+            <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+
+            <span class="c1"># Value compare</span>
+
+            <span class="k">return</span> <span class="n">y</span> <span class="o">==</span> <span class="n">x</span>
+
+    <span class="k">return</span> <span class="nb">any</span><span class="p">(</span><span class="n">_compare</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">criteria</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">_intersect</span><span class="p">(</span><span class="kp">iterable</span><span class="p">,</span> <span class="n">criteria</span><span class="p">,</span> <span class="kp">inv</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;Keep elements of ``iterable`` that match **any** criteria,</span>
+
+<span class="sd">    as evaluated by flexcomp().</span>
+
+<span class="sd">    Returns dict/list if ``iterable`` is dict/iterable.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">negate</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="p">(</span><span class="ow">not</span> <span class="n">x</span><span class="p">)</span> <span class="k">if</span> <span class="kp">inv</span> <span class="k">else</span> <span class="n">x</span>
+
+    <span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="kp">iterable</span> <span class="k">if</span> <span class="n">negate</span><span class="p">(</span><span class="n">flexcomp</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="o">*</span><span class="n">criteria</span><span class="p">))]</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="kp">iterable</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>  <span class="c1"># Dict</span>
+
+        <span class="k">return</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="kp">iterable</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">keys</span>
+
+<span class="c1"># For some reason, _intersect (with the `inv` switch) is</span>
+
+<span class="c1"># for the brain to parse. Use intersect and complement instead.</span>
+
+<span class="k">def</span> <span class="nf">intersect</span><span class="p">(</span><span class="kp">iterable</span><span class="p">,</span> <span class="n">wanteds</span><span class="p">):</span>
+
+    <span class="k">return</span> <span class="n">_intersect</span><span class="p">(</span><span class="kp">iterable</span><span class="p">,</span> <span class="n">wanteds</span><span class="p">,</span> <span class="kp">inv</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">complement</span><span class="p">(</span><span class="kp">iterable</span><span class="p">,</span> <span class="n">unwanteds</span><span class="p">):</span>
+
+    <span class="k">return</span> <span class="n">_intersect</span><span class="p">(</span><span class="kp">iterable</span><span class="p">,</span> <span class="n">unwanteds</span><span class="p">,</span> <span class="kp">inv</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Complement should be called &quot;relative complement&quot; (or set diff)</span>
+
+<span class="k">def</span> <span class="nf">prodct</span><span class="p">(</span><span class="n">dct</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;Cartesian/Outer product, for dicts.</span>
+
+<span class="sd">    Example:</span>
+
+<span class="sd">    &gt;&gt;&gt; list(prodct(dict(n=[1,2], c=&#39;ab&#39;)))</span>
+
+<span class="sd">    [{&#39;n&#39;: 1, &#39;c&#39;: &#39;a&#39;},</span>
+
+<span class="sd">     {&#39;n&#39;: 1, &#39;c&#39;: &#39;b&#39;},</span>
+
+<span class="sd">     {&#39;n&#39;: 2, &#39;c&#39;: &#39;a&#39;},</span>
+
+<span class="sd">     {&#39;n&#39;: 2, &#39;c&#39;: &#39;b&#39;}]</span>
+
+<span class="sd">    Source: https://stackoverflow.com/a/40623158/38281.&quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">dct</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="kp">product</span><span class="p">(</span><span class="o">*</span><span class="n">dct</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+
+<span class="k">def</span> <span class="nf">transpose_dicts</span><span class="p">(</span><span class="n">DD</span><span class="p">,</span> <span class="n">safe</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;As the name says.</span>
+
+<span class="sd">    Incredibly, it is difficult to make this less verbose</span>
+
+<span class="sd">    (the one-liner is unpredicable for non-rectangular cases)</span>
+
+<span class="sd">    Example:</span>
+
+<span class="sd">    &gt;&gt;&gt; DD = {chr(97+i): {chr(65+j):i*10+j for j in range(2)}</span>
+
+<span class="sd">                                           for i in range(3)}</span>
+
+<span class="sd">    &gt;&gt;&gt; DD</span>
+
+<span class="sd">    {&#39;a&#39;: {&#39;A&#39;: 0, &#39;B&#39;: 1}, &#39;b&#39;: {&#39;A&#39;: 10, &#39;B&#39;: 11}, &#39;c&#39;: {&#39;A&#39;: 20, &#39;B&#39;: 21}}</span>
+
+<span class="sd">    &gt;&gt;&gt; transpose_dicts(DD)</span>
+
+<span class="sd">    {&#39;A&#39;: {&#39;a&#39;: 0, &#39;b&#39;: 10, &#39;c&#39;: 20}, &#39;B&#39;: {&#39;a&#39;: 1, &#39;b&#39;: 11, &#39;c&#39;: 21}}</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">new</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="n">prev</span> <span class="o">=</span> <span class="s2">&quot;UNINITIALIZED&quot;</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">DD</span><span class="p">:</span>
+
+        <span class="c1"># Validate column keys</span>
+
+        <span class="k">if</span> <span class="n">safe</span> <span class="ow">and</span> <span class="n">prev</span> <span class="o">!=</span> <span class="s2">&quot;UNINITIALIZED&quot;</span><span class="p">:</span>
+
+            <span class="k">assert</span> <span class="n">prev</span> <span class="o">==</span> <span class="n">DD</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="sa">f</span><span class="s2">&quot;Key mismatch for row </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="n">prev</span> <span class="o">=</span> <span class="n">DD</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">DD</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+
+            <span class="n">new</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="p">{})[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">DD</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">new</span>
+
+<span class="k">def</span> <span class="nf">transps</span><span class="p">(</span><span class="n">thing2d</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;Delegates transpose operation to the appropriate function.&quot;&quot;&quot;</span>
+
+    <span class="c1"># Is dict? Otherwise assume list (tuple also works).</span>
+
+    <span class="n">dict1</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">thing2d</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span>
+
+    <span class="n">item0</span> <span class="o">=</span> <span class="n">get0</span><span class="p">(</span><span class="n">thing2d</span><span class="p">)</span> <span class="k">if</span> <span class="n">dict1</span> <span class="k">else</span> <span class="n">thing2d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># fine since py3.7</span>
+
+    <span class="n">dict2</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item0</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span>
+
+    <span class="k">if</span>       <span class="n">dict1</span> <span class="ow">and</span>     <span class="n">dict2</span><span class="p">:</span> <span class="n">f</span> <span class="o">=</span> <span class="n">transpose_dicts</span>           <span class="c1"># noqa</span>
+
+    <span class="k">elif</span>     <span class="n">dict1</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">dict2</span><span class="p">:</span> <span class="n">f</span> <span class="o">=</span> <span class="n">transpose_dict_of_lists</span>   <span class="c1"># noqa</span>
+
+    <span class="k">elif</span> <span class="ow">not</span> <span class="n">dict1</span> <span class="ow">and</span>     <span class="n">dict2</span><span class="p">:</span> <span class="n">f</span> <span class="o">=</span> <span class="n">transpose_list_of_dicts</span>   <span class="c1"># noqa</span>
+
+    <span class="k">elif</span> <span class="ow">not</span> <span class="n">dict1</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">dict2</span><span class="p">:</span> <span class="n">f</span> <span class="o">=</span> <span class="n">transpose_lists</span>           <span class="c1"># noqa</span>
+
+    <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">thing2d</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">transpose_list_of_dicts</span><span class="p">(</span><span class="n">LD</span><span class="p">,</span> <span class="n">safe</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Example:</span>
+
+<span class="sd">    &gt;&gt;&gt; LD = [{chr(97+j):j for j in range(2)} for i in range(3)]</span>
+
+<span class="sd">    &gt;&gt;&gt; LD</span>
+
+<span class="sd">    [{&#39;a&#39;: 0, &#39;b&#39;: 1}, {&#39;a&#39;: 0, &#39;b&#39;: 1}, {&#39;a&#39;: 0, &#39;b&#39;: 1}]</span>
+
+<span class="sd">    &gt;&gt;&gt; transpose_list_of_dicts(LD)</span>
+
+<span class="sd">    {&#39;a&#39;: [0, 0, 0], &#39;b&#39;: [1, 1, 1]}</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">new</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="n">prev</span> <span class="o">=</span> <span class="s2">&quot;UNINITIALIZED&quot;</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">D</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">LD</span><span class="p">):</span>
+
+        <span class="c1"># Validate column keys</span>
+
+        <span class="k">if</span> <span class="n">safe</span> <span class="ow">and</span> <span class="n">prev</span> <span class="o">!=</span> <span class="s2">&quot;UNINITIALIZED&quot;</span><span class="p">:</span>
+
+            <span class="k">assert</span> <span class="n">prev</span> <span class="o">==</span> <span class="n">D</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span> <span class="sa">f</span><span class="s2">&quot;Key mismatch for dict number </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span>
+
+        <span class="n">prev</span> <span class="o">=</span> <span class="n">D</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">D</span><span class="p">:</span>
+
+            <span class="n">new</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="p">[])</span><span class="o">.</span><span class="kp">append</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">new</span>
+
+<span class="k">def</span> <span class="nf">transpose_dict_of_lists</span><span class="p">(</span><span class="n">DL</span><span class="p">,</span> <span class="n">safe</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;This is essentially a one-liner.</span>
+
+<span class="sd">    However, the validation of `safe=True` requires some effort.</span>
+
+<span class="sd">    Example:</span>
+
+<span class="sd">    &gt;&gt;&gt; DL = {chr(97+i): [i*10+j for j in range(2)] for i in range(3)}</span>
+
+<span class="sd">    &gt;&gt;&gt; DL</span>
+
+<span class="sd">    {&#39;a&#39;: [0, 1], &#39;b&#39;: [10, 11], &#39;c&#39;: [20, 21]}</span>
+
+<span class="sd">    &gt;&gt;&gt; transpose_dict_of_lists(DL)</span>
+
+<span class="sd">    [{&#39;a&#39;: 0, &#39;b&#39;: 10, &#39;c&#39;: 20}, {&#39;a&#39;: 1, &#39;b&#39;: 11, &#39;c&#39;: 21}]</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Validate row length</span>
+
+    <span class="k">if</span> <span class="n">safe</span><span class="p">:</span>
+
+        <span class="n">lens</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">DL</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">DL</span><span class="p">]</span>
+
+        <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="n">lens</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">L</span> <span class="k">for</span> <span class="n">L</span> <span class="ow">in</span> <span class="n">lens</span><span class="p">),</span> <span class="s2">&quot;Rows have unqual lengths.&quot;</span>
+
+    <span class="c1"># https://stackoverflow.com/q/5558418</span>
+
+    <span class="n">new</span> <span class="o">=</span> <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">DL</span><span class="p">,</span> <span class="n">t</span><span class="p">))</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">DL</span><span class="o">.</span><span class="n">values</span><span class="p">())]</span>
+
+    <span class="k">return</span> <span class="n">new</span>
+
+<span class="k">def</span> <span class="nf">transpose_lists</span><span class="p">(</span><span class="n">LL</span><span class="p">,</span> <span class="n">safe</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">as_list</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;This is essentially `zip(*LL)`.</span>
+
+<span class="sd">    However, the validation of `safe=True` requires some effort,</span>
+
+<span class="sd">    and converting to an explicit list requires another bit.</span>
+
+<span class="sd">    Example:</span>
+
+<span class="sd">    &gt;&gt;&gt; LL = [[i*10 + j for j in range(2)] for i in range(3)]</span>
+
+<span class="sd">    &gt;&gt;&gt; LL</span>
+
+<span class="sd">    [[0, 1], [10, 11], [20, 21]]</span>
+
+<span class="sd">    &gt;&gt;&gt; transpose_lists(LL,as_list=True)</span>
+
+<span class="sd">    [[0, 10, 20], [1, 11, 21]]</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">safe</span><span class="p">:</span>
+
+        <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">LL</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">row</span><span class="p">)</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">LL</span><span class="p">)</span>
+
+    <span class="n">new</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">LL</span><span class="p">)</span>  <span class="c1"># transpose</span>
+
+    <span class="k">if</span> <span class="n">as_list</span><span class="p">:</span>
+
+        <span class="c1"># new = list(map(list, new))</span>
+
+        <span class="n">new</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">row</span><span class="p">)</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">new</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">new</span>
+
+<span class="c1"># from https://pingfive.typepad.com/blog/2010/04/</span>
+
+<span class="k">def</span> <span class="nf">deep_getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">default</span><span class="p">):</span>
+
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">name</span><span class="o">.</span><span class="kp">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">):</span>
+
+        <span class="n">obj</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="o">*</span><span class="n">default</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">obj</span>
+
+<span class="c1"># Rm&#39;d coz it&#39;s what type of obj to set at intermediate hierarchy levels:</span>
+
+<span class="c1"># deep_setattr()</span>
+
+<span class="k">def</span> <span class="nf">deep_hasattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+
+    <span class="k">try</span><span class="p">:</span>
+
+        <span class="n">deep_getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+
+        <span class="k">return</span> <span class="kc">False</span>
+
+<span class="n">MIN_LINEWIDTH</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="c1"># TODO 4: should also be made thread-safe? Ref _is_being_printed.</span>
+
+<span class="n">_linewidth</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="n">_top_dog</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="n">_is_being_printed</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+<span class="nd">@contextmanager</span>
+
+<span class="k">def</span> <span class="nf">_shorten_linewidth_by</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;Shorten linewidth parameter. Also works on numpy.&quot;&quot;&quot;</span>
+
+    <span class="c1"># Avoid (overhead of) importing numpy if not required.</span>
+
+    <span class="c1"># https://stackoverflow.com/a/30483269/38281</span>
+
+    <span class="k">if</span> <span class="s2">&quot;numpy&quot;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
+
+        <span class="k">def</span> <span class="nf">np_lw</span><span class="p">(</span><span class="n">lw</span><span class="p">):</span> <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="kp">set_printoptions</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="n">lw</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>  <span class="c1"># Provide pass-through</span>
+
+        <span class="k">def</span> <span class="nf">np_lw</span><span class="p">(</span><span class="n">lw</span><span class="p">):</span> <span class="k">return</span> <span class="n">lw</span>
+
+    <span class="c1"># Structured (store, try, finally) just like np.printoptions().</span>
+
+    <span class="k">global</span> <span class="n">_linewidth</span>
+
+    <span class="n">old</span> <span class="o">=</span> <span class="n">_linewidth</span>
+
+    <span class="k">try</span><span class="p">:</span>
+
+        <span class="c1"># Set lw</span>
+
+        <span class="n">_linewidth</span> <span class="o">-=</span> <span class="n">n</span>
+
+        <span class="n">_linewidth</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">_linewidth</span><span class="p">,</span> <span class="n">MIN_LINEWIDTH</span><span class="p">)</span>
+
+        <span class="n">np_lw</span><span class="p">(</span><span class="n">_linewidth</span><span class="p">)</span>
+
+        <span class="k">yield</span> <span class="n">_linewidth</span>
+
+    <span class="k">finally</span><span class="p">:</span>
+
+        <span class="c1"># Restore lw</span>
+
+        <span class="n">_linewidth</span> <span class="o">=</span> <span class="n">old</span>
+
+        <span class="n">np_lw</span><span class="p">(</span><span class="n">old</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">_init</span><span class="p">(</span><span class="n">user_function</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;Does two things:</span>
+
+<span class="sd">    - Monitor recursion of self.</span>
+
+<span class="sd">      - This is done is just like in ``reprlib``</span>
+
+<span class="sd">        whence I learned how to make it thread-safe.</span>
+
+<span class="sd">        One diff. is that here _repr_running is global,</span>
+
+<span class="sd">        which works better for this convoluted example:</span>
+
+<span class="sd">        &gt;&gt;&gt; d1 = AlignedDict(a=1)</span>
+
+<span class="sd">        &gt;&gt;&gt; d1[&quot;d2&quot;] = AlignedDict(self=d1)</span>
+
+<span class="sd">        &gt;&gt;&gt; d1[&quot;lst&quot;] = [d1[&quot;d2&quot;]]</span>
+
+<span class="sd">      - Sibling repetition is not recursion.</span>
+
+<span class="sd">    - Initializes the linewidth with ``get_terminal_size()``,</span>
+
+<span class="sd">      unless the ``_linewidth`` variable has been set.</span>
+
+<span class="sd">    Note: Both of these actions also require clean-up,</span>
+
+<span class="sd">    so there&#39;s a ``finally`` section as well.</span>
+
+<span class="sd">    Note: Cannot apply to core printing function (AlignedDict._repr),</span>
+
+<span class="sd">    because each call to AlignedDict creates new (unregistered) id&#39;s.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">wrapped</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="c1"># Set linewidth</span>
+
+        <span class="k">global</span> <span class="n">_top_dog</span><span class="p">,</span> <span class="n">_linewidth</span>
+
+        <span class="n">old_linewidth</span> <span class="o">=</span> <span class="n">_linewidth</span>
+
+        <span class="k">if</span> <span class="n">_top_dog</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+            <span class="n">_top_dog</span> <span class="o">=</span> <span class="nb">id</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">_linewidth</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+                <span class="n">_linewidth</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">shutil</span><span class="o">.</span><span class="n">get_terminal_size</span><span class="p">()</span>
+
+        <span class="c1"># Turn ON recursion guard</span>
+
+        <span class="n">id_thread</span> <span class="o">=</span> <span class="nb">id</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span> <span class="n">get_ident</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">id_thread</span> <span class="ow">in</span> <span class="n">_is_being_printed</span><span class="p">:</span>
+
+            <span class="k">return</span> <span class="s2">&quot;&lt;Recurs-</span><span class="si">%d</span><span class="s2">&gt;&quot;</span> <span class="o">%</span> <span class="nb">id</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="c1"># return &quot;...&quot;</span>
+
+        <span class="n">_is_being_printed</span><span class="o">.</span><span class="kp">add</span><span class="p">(</span><span class="n">id_thread</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+
+            <span class="n">result</span> <span class="o">=</span> <span class="n">user_function</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="k">finally</span><span class="p">:</span>
+
+            <span class="c1"># Turn OFF recursion guard</span>
+
+            <span class="n">_is_being_printed</span><span class="o">.</span><span class="n">discard</span><span class="p">(</span><span class="n">id_thread</span><span class="p">)</span>
+
+            <span class="c1"># Restore linewidth</span>
+
+            <span class="k">if</span> <span class="nb">id</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">==</span> <span class="n">_top_dog</span><span class="p">:</span>
+
+                <span class="n">_top_dog</span> <span class="o">=</span> <span class="kc">None</span>
+
+                <span class="n">_linewidth</span> <span class="o">=</span> <span class="n">old_linewidth</span>
+
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="k">return</span> <span class="n">wrapped</span>
+
+<span class="k">class</span> <span class="nc">AlignedDict</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;Dict whose items are printed aligned and line-wrapped.</span>
+
+<span class="sd">    Initialized and used just like a regular dict, since only</span>
+
+<span class="sd">    difference to ``dict`` is __str__ and __repr__ (of which</span>
+
+<span class="sd">    the other functions are auxiliaries and hidden).</span>
+
+<span class="sd">    Also provides printopts. Example:</span>
+
+<span class="sd">    &gt;&gt;&gt; a = np.arange(24)</span>
+
+<span class="sd">    &gt;&gt;&gt; A = a.reshape((4,-1))</span>
+
+<span class="sd">    &gt;&gt;&gt; dct = AlignedDict(a=a, b=99, z=3, A=A)</span>
+
+<span class="sd">    &gt;&gt;&gt; dct[&quot;self&quot;] = dct</span>
+
+<span class="sd">    &gt;&gt;&gt; dct[&quot;sub&quot;] = AlignedDict(x=1,text=&quot;lorem&quot;,self=dct)</span>
+
+<span class="sd">    &gt;&gt;&gt; dct.printopts = dict(excluded=[&quot;z&quot;], aliases={&quot;A&quot;:&quot;matrix&quot;})</span>
+
+<span class="sd">    &gt;&gt;&gt; print(repr(dct))</span>
+
+<span class="sd">    Note on ``printopts[&quot;indent&quot;]``:</span>
+
+<span class="sd">    - If not set,</span>
+
+<span class="sd">      then the keys are right-aligned (so that the colons line up),</span>
+
+<span class="sd">      and the values (including multi-line) are printed to their right,</span>
+
+<span class="sd">      allowing them to be placed on the same line as the key.</span>
+
+<span class="sd">      This setting is pretty, unless the keys are really long.</span>
+
+<span class="sd">    - If set (to an integer), then the values are printed on a new line,</span>
+
+<span class="sd">      indented by that (unchanging) length (unless they&#39;re one-liners).</span>
+
+<span class="sd">    A similar class is scipy.optimize.OptimizeResult</span>
+
+<span class="sd">    See also:</span>
+
+<span class="sd">    - pprint.pformat(x,linewidth,compact=True,sort_dicts=False)</span>
+
+<span class="sd">    - json.dumps(x, indent=4, sort_keys=False, default=repr)</span>
+
+<span class="sd">    But, both of these work recursively, which is NOT our aim.</span>
+
+<span class="sd">    In particular, they need to implement behaviour for all types.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@_init</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_repr</span><span class="p">(</span><span class="n">is_repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="nd">@_init</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_repr</span><span class="p">(</span><span class="n">is_repr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_repr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">is_repr</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+
+        <span class="sd">&quot;&quot;&quot;Both __str__ and __repr__ in one!</span>
+
+<span class="sd">        Note: if ``self`` is printed as part of a standard object,</span>
+
+<span class="sd">        __repr__ gets called, not __str__.&quot;&quot;&quot;</span>
+
+        <span class="c1"># Constants</span>
+
+        <span class="n">sep</span> <span class="o">=</span> <span class="s2">&quot;: &quot;</span>
+
+        <span class="n">bullet</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span> <span class="k">if</span> <span class="n">is_repr</span> <span class="k">else</span> <span class="s2">&quot;  - &quot;</span>
+
+        <span class="n">comma</span> <span class="o">=</span> <span class="s2">&quot;,&quot;</span> <span class="k">if</span> <span class="n">is_repr</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="n">spinechar</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span> <span class="k">if</span> <span class="n">is_repr</span> <span class="k">else</span> <span class="s2">&quot;¦&quot;</span>  <span class="c1"># ¦, ┆, │, ⎸, ▏</span>
+
+        <span class="n">format_key</span> <span class="o">=</span> <span class="nb">repr</span> <span class="k">if</span> <span class="n">is_repr</span> <span class="k">else</span> <span class="nb">str</span>
+
+        <span class="n">format_val</span> <span class="o">=</span> <span class="nb">repr</span> <span class="k">if</span> <span class="n">is_repr</span> <span class="k">else</span> <span class="nb">str</span>
+
+        <span class="c1"># Apply print options</span>
+
+        <span class="n">dct</span> <span class="o">=</span> <span class="bp">self</span>
+
+        <span class="n">opt</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;printopts&quot;</span><span class="p">,</span> <span class="p">{})</span>
+
+        <span class="n">dct</span> <span class="o">=</span> <span class="n">intersect</span><span class="p">(</span><span class="n">dct</span><span class="p">,</span>  <span class="n">opt</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;included&quot;</span><span class="p">,</span> <span class="n">dct</span><span class="p">))</span>
+
+        <span class="n">dct</span> <span class="o">=</span> <span class="n">complement</span><span class="p">(</span><span class="n">dct</span><span class="p">,</span> <span class="n">opt</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;excluded&quot;</span><span class="p">,</span> <span class="p">[]))</span>
+
+        <span class="n">dct</span> <span class="o">=</span> <span class="p">{</span><span class="n">opt</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;aliases&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">dct</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+        <span class="k">if</span> <span class="s2">&quot;indent&quot;</span> <span class="ow">in</span> <span class="n">opt</span><span class="p">:</span>
+
+            <span class="c1"># LEFT-aligned keys -- indent is fixed, and val is always on newline</span>
+
+            <span class="n">val_indent</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">bullet</span><span class="p">)</span> <span class="o">+</span> <span class="n">spinechar</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="n">opt</span><span class="p">[</span><span class="s2">&quot;indent&quot;</span><span class="p">])</span>
+
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="c1"># RIGHT-aligned keys -- indent ~ on keys, and val can start on key&#39;s line</span>
+
+            <span class="n">kWidth</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">format_key</span><span class="p">(</span><span class="n">k</span><span class="p">))</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">dct</span><span class="p">],</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+            <span class="n">val_indent</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">bullet</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">*</span> <span class="n">kWidth</span> <span class="o">+</span> <span class="n">spinechar</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sep</span><span class="p">))</span>
+
+            <span class="k">def</span> <span class="nf">format_key</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">old</span><span class="o">=</span><span class="n">format_key</span><span class="p">):</span>
+
+                <span class="k">return</span> <span class="n">old</span><span class="p">(</span><span class="n">key</span><span class="p">)</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="n">kWidth</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">iRepr</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+
+            <span class="n">trim</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">val_indent</span> <span class="o">+</span> <span class="n">comma</span><span class="p">)</span>
+
+            <span class="c1"># Try placing on 1 line, but use max() to insure against wrapping</span>
+
+            <span class="k">if</span> <span class="s2">&quot;indent&quot;</span> <span class="ow">in</span> <span class="n">opt</span> <span class="ow">and</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">format_val</span><span class="p">(</span><span class="n">val</span><span class="p">)):</span>
+
+                <span class="n">trim</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">trim</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">bullet</span> <span class="o">+</span> <span class="n">format_key</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="o">+</span> <span class="n">sep</span> <span class="o">+</span> <span class="n">comma</span><span class="p">))</span>
+
+            <span class="k">with</span> <span class="n">_shorten_linewidth_by</span><span class="p">(</span><span class="n">trim</span><span class="p">):</span>
+
+                <span class="n">val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wrap_item</span><span class="p">(</span><span class="n">format_val</span><span class="p">(</span><span class="n">val</span><span class="p">))</span>
+
+            <span class="n">val</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">val_indent</span><span class="p">)</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="s2">&quot;indent&quot;</span> <span class="ow">in</span> <span class="n">opt</span> <span class="ow">and</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="ow">in</span> <span class="n">val</span><span class="p">):</span>
+
+                <span class="n">val</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">val_indent</span> <span class="o">+</span> <span class="n">val</span>  <span class="c1"># 1st line also on new line</span>
+
+            <span class="k">return</span> <span class="n">format_key</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="o">+</span> <span class="n">sep</span> <span class="o">+</span> <span class="n">val</span>
+
+        <span class="c1"># dct --&gt; text</span>
+
+        <span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="n">iRepr</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">dct</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+
+        <span class="c1"># Sort</span>
+
+        <span class="n">items</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sort</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">dct</span><span class="p">,</span> <span class="n">items</span><span class="p">))</span>
+
+        <span class="c1"># Join</span>
+
+        <span class="n">txt</span> <span class="o">=</span> <span class="p">(</span><span class="n">comma</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">bullet</span><span class="p">)</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+
+            <span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">bullet</span> <span class="o">+</span> <span class="n">txt</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+        <span class="c1"># Add braces, etc</span>
+
+        <span class="k">if</span> <span class="n">is_repr</span><span class="p">:</span>
+
+            <span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;{&quot;</span> <span class="o">+</span> <span class="n">txt</span> <span class="o">+</span> <span class="s2">&quot;}&quot;</span>
+
+        <span class="k">return</span> <span class="n">txt</span>
+
+    <span class="c1"># AUX FUNCTIONS</span>
+
+    <span class="nd">@staticmethod</span>
+
+    <span class="k">def</span> <span class="nf">_wrap_item</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
+
+        <span class="sd">&quot;&quot;&quot;Wrap txt.&quot;&quot;&quot;</span>
+
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">txt</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+
+        <span class="n">ll</span> <span class="o">=</span> <span class="p">[</span><span class="n">textwrap</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">_linewidth</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">]</span>  <span class="c1"># list of lists</span>
+
+        <span class="n">hang</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span>  <span class="c1"># No need to shorten_lw for this</span>
+
+        <span class="n">ll</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">hang</span> <span class="o">+</span> <span class="n">line</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">:]]</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">ll</span><span class="p">]</span>
+
+        <span class="n">ll</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">ll</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">w</span><span class="p">]</span>  <span class="c1"># flatten list-of-lists</span>
+
+        <span class="k">return</span> <span class="n">ll</span>
+
+    <span class="k">def</span> <span class="nf">_sort</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dict_and_texts</span><span class="p">):</span>
+
+        <span class="n">ORDR</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;printopts&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ordering&quot;</span><span class="p">,</span> <span class="p">[])</span> <span class="ow">or</span> <span class="p">[]</span>
+
+        <span class="n">reverse</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;printopts&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;reverse&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">indexer</span><span class="p">(</span><span class="n">key_text</span><span class="p">):</span>
+
+            <span class="n">key</span><span class="p">,</span> <span class="n">text</span> <span class="o">=</span> <span class="n">key_text</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ORDR</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>  <span class="c1"># assume list</span>
+
+                <span class="c1"># Manual ordering.</span>
+
+                <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ORDR</span><span class="p">:</span>
+
+                    <span class="c1"># -10000 =&gt; priority</span>
+
+                    <span class="n">idx</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10000</span> <span class="o">+</span> <span class="n">ORDR</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+                <span class="k">else</span><span class="p">:</span>
+
+                    <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># neutral</span>
+
+            <span class="k">elif</span> <span class="s2">&quot;line&quot;</span> <span class="ow">in</span> <span class="n">ORDR</span><span class="p">:</span>
+
+                <span class="c1"># Line-number count</span>
+
+                <span class="n">idx</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">text</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+                <span class="c1"># Line-length count</span>
+
+                <span class="n">idx</span> <span class="o">+=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span>
+
+            <span class="k">elif</span> <span class="s2">&quot;alpha&quot;</span> <span class="ow">in</span> <span class="n">ORDR</span><span class="p">:</span>
+
+                <span class="c1"># Alphabetic (tuple compare)</span>
+
+                <span class="n">idx</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+            <span class="k">return</span> <span class="n">idx</span>
+
+        <span class="n">pairs</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">dict_and_texts</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">indexer</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="n">reverse</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="p">[</span><span class="n">text</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">]</span>
+
+<span class="k">class</span> <span class="nc">NicePrint</span><span class="p">:</span>
+
+    <span class="sd">&quot;&quot;&quot;Provides __repr__ and __str__ by AlignedDict(vars(self)).</span>
+
+<span class="sd">    Example usage:</span>
+
+<span class="sd">    &gt;&gt;&gt; class MyClass(NicePrint):</span>
+
+<span class="sd">    &gt;&gt;&gt;     printopts = NicePrint.printopts.copy()</span>
+
+<span class="sd">    &gt;&gt;&gt;     printopts[&quot;excluded&quot;] += [&quot;my_hidden_var&quot;]</span>
+
+<span class="sd">    &gt;&gt;&gt;     printopts[&quot;aliases&quot;] = {&quot;asdf&quot;:&quot;better_name&quot;}</span>
+
+<span class="sd">    &gt;&gt;&gt;     ...</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># _underscored = re.compile(&#39;^_&#39;)</span>
+
+    <span class="n">_underscored</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)</span> <span class="c1"># noqa</span>
+
+    <span class="n">printopts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">excluded</span><span class="o">=</span><span class="p">[</span><span class="n">_underscored</span><span class="p">,</span> <span class="s2">&quot;printopts&quot;</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">_repr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">is_repr</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+
+        <span class="n">cls_name</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s2">&quot;(&quot;</span> <span class="k">if</span> <span class="n">is_repr</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="n">dct</span> <span class="o">=</span> <span class="n">AlignedDict</span><span class="p">(</span><span class="nb">vars</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+
+        <span class="n">dct</span><span class="o">.</span><span class="n">printopts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">printopts</span>
+
+        <span class="k">with</span> <span class="n">_shorten_linewidth_by</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cls_name</span><span class="p">)):</span>
+
+            <span class="n">txt</span> <span class="o">=</span> <span class="nb">repr</span><span class="p">(</span><span class="n">dct</span><span class="p">)</span> <span class="k">if</span> <span class="n">is_repr</span> <span class="k">else</span> <span class="nb">str</span><span class="p">(</span><span class="n">dct</span><span class="p">)</span>
+
+            <span class="n">txt</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">cls_name</span><span class="p">))</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">txt</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span>
+
+        <span class="k">return</span> <span class="n">cls_name</span> <span class="o">+</span> <span class="n">txt</span> <span class="o">+</span> <span class="p">(</span><span class="s2">&quot;)&quot;</span> <span class="k">if</span> <span class="n">is_repr</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+    <span class="nd">@_init</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_repr</span><span class="p">(</span><span class="n">is_repr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="nd">@_init</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_repr</span><span class="p">(</span><span class="n">is_repr</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">DotDict</span><span class="p">(</span><span class="n">AlignedDict</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;Dict that *also* supports attribute (dot) access.</span>
+
+<span class="sd">    Benefit compared to a dict:</span>
+
+<span class="sd">     - Verbosity of ``d[&#39;a&#39;]`` vs. ``d.a``.</span>
+
+<span class="sd">     - Includes ``AlignedDict``.</span>
+
+<span class="sd">    DotDict is not terribly hackey, and is quite robust.</span>
+
+<span class="sd">    Similar constructs are quite common, eg IPython/utils/ipstruct.py.</span>
+
+<span class="sd">    Main inspiration: https://stackoverflow.com/a/14620633</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">printopts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">excluded</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;printopts&quot;</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+        <span class="sd">&quot;&quot;&quot;Init like a normal dict.&quot;&quot;&quot;</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># Make a (normal) dict</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span> <span class="o">=</span> <span class="bp">self</span>  <span class="c1"># Assign it to self.__dict__</span>
+
+<span class="c1"># def print_nested(dct):</span>
+
+<span class="c1">#     &quot;&quot;&quot;Print nested dicts&quot;&quot;&quot;</span>
+
+<span class="c1">#</span>
+
+<span class="c1">#     # Note: if a dict is inside of a list (for example),</span>
+
+<span class="c1">#     # it will be printed in the standard fashion,</span>
+
+<span class="c1">#     # despite our overriding the builtins.repr.</span>
+
+<span class="c1">#     # There appears to be no way around this, except,</span>
+
+<span class="c1">#     # like reprlib does, defining custom treatment for each</span>
+
+<span class="c1">#     # type (dicts, list, sets, tuples, deques, etc).</span>
+
+<span class="c1">#</span>
+
+<span class="c1">#     # Another issue is that I dont know how to check if an object</span>
+
+<span class="c1">#     # is suitable for AlignedDict printing or not,</span>
+
+<span class="c1">#     # so this function is restricted to dicts.</span>
+
+<span class="c1">#</span>
+
+<span class="c1">#     @_init</span>
+
+<span class="c1">#     def new_repr(obj):</span>
+
+<span class="c1">#         if hasattr(obj,&quot;items&quot;):</span>
+
+<span class="c1">#             obj = AlignedDict(obj)</span>
+
+<span class="c1">#         return orig_repr(obj)</span>
+
+<span class="c1">#</span>
+
+<span class="c1">#     import builtins</span>
+
+<span class="c1">#     orig_repr = builtins.repr</span>
+
+<span class="c1">#     try:</span>
+
+<span class="c1">#         builtins.repr = new_repr</span>
+
+<span class="c1">#         txt = repr(dct)</span>
+
+<span class="c1">#     finally:</span>
+
+<span class="c1">#         builtins.repr = orig_repr</span>
+
+<span class="c1">#</span>
+
+<span class="c1">#     print(txt)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+
+    <span class="c1"># Note: this setup is purposely messy,</span>
+
+    <span class="c1"># in order to test recursion treatments.</span>
+
+    <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="kp">arange</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
+
+    <span class="n">A</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="kp">reshape</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+    <span class="n">d1</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">99</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="n">A</span><span class="p">)</span>
+
+    <span class="n">d2</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">lorem</span><span class="o">=</span><span class="s2">&quot;ipsum&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Dont move this block below (coz then it will contain</span>
+
+    <span class="c1"># d1/d2 recursions, rather than a1/a2)</span>
+
+    <span class="n">a1</span> <span class="o">=</span> <span class="n">AlignedDict</span><span class="p">(</span><span class="n">d1</span><span class="p">)</span>
+
+    <span class="n">a2</span> <span class="o">=</span> <span class="n">AlignedDict</span><span class="p">(</span><span class="n">d2</span><span class="p">)</span>
+
+    <span class="c1"># Json -- cannot handle recursions</span>
+
+    <span class="c1"># import json</span>
+
+    <span class="n">d1</span><span class="p">[</span><span class="s2">&quot;d2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">d2</span>
+
+    <span class="c1"># print(&quot;\njson.dumps:\n================&quot;)</span>
+
+    <span class="c1"># print(json.dumps(d1, indent=4, default=repr))</span>
+
+    <span class="c1"># pprint</span>
+
+    <span class="c1"># import pprint</span>
+
+    <span class="n">d1</span><span class="p">[</span><span class="s2">&quot;d2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">d2</span>
+
+    <span class="n">d2</span><span class="p">[</span><span class="s2">&quot;d1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">d1</span>
+
+    <span class="n">d1</span><span class="p">[</span><span class="s2">&quot;lst&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">d2</span><span class="p">]</span>
+
+    <span class="c1"># print(&quot;\npprint:\n================&quot;)</span>
+
+    <span class="c1"># pprint.pprint(d1,compact=True)</span>
+
+    <span class="c1"># Regular dict/print</span>
+
+    <span class="c1"># print(&quot;\nRegular dict/print:\n================&quot;)</span>
+
+    <span class="c1"># print(d1)</span>
+
+    <span class="c1"># Add recursions similar to d1/d2</span>
+
+    <span class="c1"># print(&quot;\nAlignedDict:\n================&quot;)</span>
+
+    <span class="n">a2</span><span class="p">[</span><span class="s2">&quot;a1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">a1</span>
+
+    <span class="n">a1</span><span class="p">[</span><span class="s2">&quot;a2&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">a2</span>
+
+    <span class="n">a1</span><span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">AlignedDict</span><span class="p">(</span><span class="kp">item</span><span class="o">=</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+
+    <span class="n">a1</span><span class="p">[</span><span class="s2">&quot;empty&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">AlignedDict</span><span class="p">()</span>
+
+    <span class="n">a1</span><span class="p">[</span><span class="s2">&quot;really long name that goes on and on&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">a2</span><span class="p">]</span>
+
+    <span class="n">a1</span><span class="o">.</span><span class="n">printopts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+
+        <span class="n">excluded</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;z&quot;</span><span class="p">],</span>
+
+        <span class="n">aliases</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;aMatrix&quot;</span><span class="p">},</span>
+
+        <span class="n">ordering</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">,</span>  <span class="c1"># or alpha or [&quot;a2&quot;, &quot;self&quot;]</span>
+
+        <span class="c1"># reverse=True,</span>
+
+    <span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">str:</span><span class="se">\n</span><span class="s2">================&quot;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">repr:</span><span class="se">\n</span><span class="s2">================&quot;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">a1</span><span class="p">))</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">================</span><span class="se">\n</span><span class="s2">with const. indent:</span><span class="se">\n</span><span class="s2">================&quot;</span><span class="p">)</span>
+
+    <span class="n">a1</span><span class="o">.</span><span class="n">printopts</span><span class="p">[</span><span class="s2">&quot;indent&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="n">a2</span><span class="o">.</span><span class="n">printopts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">indent</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">str:</span><span class="se">\n</span><span class="s2">================&quot;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">a1</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">repr:</span><span class="se">\n</span><span class="s2">================&quot;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">a1</span><span class="p">))</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">NicePrint:</span><span class="se">\n</span><span class="s2">================&quot;</span><span class="p">)</span>
+
+    <span class="k">class</span> <span class="nc">MyClass</span><span class="p">(</span><span class="n">NicePrint</span><span class="p">):</span>
+
+        <span class="n">printopts</span> <span class="o">=</span> <span class="n">NicePrint</span><span class="o">.</span><span class="n">printopts</span><span class="o">.</span><span class="kp">copy</span><span class="p">()</span>
+
+        <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_a</span> <span class="o">=</span> <span class="mi">99</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="kp">arange</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
+
+            <span class="c1"># self.a = 1</span>
+
+            <span class="c1"># self.lorem = &quot;ipsum&quot;</span>
+
+            <span class="c1"># self.lst = np.arange(20)</span>
+
+    <span class="n">obj1</span> <span class="o">=</span> <span class="n">MyClass</span><span class="p">()</span>
+
+    <span class="c1"># obj1.obj2 = MyClass()</span>
+
+    <span class="c1"># obj1.self = obj1</span>
+
+    <span class="n">obj1</span><span class="o">.</span><span class="n">printopts</span><span class="p">[</span><span class="s2">&quot;excluded&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="p">[</span><span class="s2">&quot;lst&quot;</span><span class="p">]</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">obj1</span><span class="p">))</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">obj1</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">DotDict:</span><span class="se">\n</span><span class="s2">================&quot;</span><span class="p">)</span>
+
+    <span class="n">dd</span> <span class="o">=</span> <span class="n">DotDict</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">99</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="n">A</span><span class="p">)</span>
+
+    <span class="n">dd</span><span class="o">.</span><span class="n">dd2</span> <span class="o">=</span> <span class="n">DotDict</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">99</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">A</span><span class="o">=</span><span class="n">A</span><span class="p">)</span>
+
+    <span class="n">dd</span><span class="o">.</span><span class="n">self</span> <span class="o">=</span> <span class="n">dd</span>
+
+    <span class="n">dd</span><span class="o">.</span><span class="n">printopts</span><span class="p">[</span><span class="s2">&quot;excluded&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">]</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">dd</span><span class="p">))</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">dd</span><span class="p">)</span>
+
+    <span class="c1"># Other tests</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">deep_getattr:</span><span class="se">\n</span><span class="s2">================&quot;</span><span class="p">)</span>
+
+    <span class="n">key2</span> <span class="o">=</span> <span class="s2">&quot;self.self.self.self.a&quot;</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">key2</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">deep_getattr</span><span class="p">(</span><span class="n">dd</span><span class="p">,</span> <span class="n">key2</span><span class="p">))</span>
+</code></pre></div>
+
+</details>
+<h2 id="variables">Variables</h2>
+<div class="codehilite"><pre><span></span><code><span class="n">MIN_LINEWIDTH</span>
+</code></pre></div>
+
+<h2 id="functions">Functions</h2>
+<h3 id="complement">complement</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">complement</span><span class="p">(</span>
+    <span class="n">iterable</span><span class="p">,</span>
+    <span class="n">unwanteds</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="n">def</span> <span class="n">complement</span><span class="p">(</span><span class="n">iterable</span><span class="p">,</span> <span class="n">unwanteds</span><span class="p">):</span>
+
+    <span class="k">return</span> <span class="n">_intersect</span><span class="p">(</span><span class="n">iterable</span><span class="p">,</span> <span class="n">unwanteds</span><span class="p">,</span> <span class="n">inv</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+<h3 id="deep_getattr">deep_getattr</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">deep_getattr</span><span class="p">(</span>
+    <span class="n">obj</span><span class="p">,</span>
+    <span class="n">name</span><span class="p">,</span>
+    <span class="o">*</span><span class="n">default</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="n">def</span> <span class="n">deep_getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="k">default</span><span class="p">):</span>
+
+    <span class="k">for</span> <span class="n">n</span> <span class="k">in</span> <span class="n">name</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="ss">&quot;.&quot;</span><span class="p">):</span>
+
+        <span class="n">obj</span> <span class="o">=</span> <span class="n">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="o">*</span><span class="k">default</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">obj</span>
+</code></pre></div>
+
+</details>
+<h3 id="deep_hasattr">deep_hasattr</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">deep_hasattr</span><span class="p">(</span>
+    <span class="n">obj</span><span class="p">,</span>
+    <span class="n">name</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="n">def</span> <span class="n">deep_hasattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+
+    <span class="n">try</span><span class="p">:</span>
+
+        <span class="n">deep_getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="k">True</span>
+
+    <span class="k">except</span> <span class="n">AttributeError</span><span class="p">:</span>
+
+        <span class="k">return</span> <span class="k">False</span>
+</code></pre></div>
+
+</details>
+<h3 id="flexcomp">flexcomp</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">flexcomp</span><span class="p">(</span>
+    <span class="n">x</span><span class="p">,</span>
+    <span class="o">*</span><span class="n">criteria</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Compare in various ways.</p>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="n">def</span> <span class="n">flexcomp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="n">criteria</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;Compare in various ways.&quot;&quot;&quot;</span>
+
+    <span class="n">def</span> <span class="n">_compare</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+
+        <span class="c1"># Callable (condition) compare</span>
+
+        <span class="n">try</span><span class="p">:</span>
+
+            <span class="k">return</span> <span class="n">y</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+        <span class="n">except</span> <span class="n">TypeError</span><span class="p">:</span>
+
+            <span class="k">pass</span>
+
+        <span class="c1"># Regex compare -- should be compiled on the outside</span>
+
+        <span class="n">try</span><span class="p">:</span>
+
+            <span class="k">return</span> <span class="nb nb-Type">bool</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+        <span class="n">except</span> <span class="n">AttributeError</span><span class="p">:</span>
+
+            <span class="c1"># Value compare</span>
+
+            <span class="k">return</span> <span class="n">y</span> <span class="o">==</span> <span class="n">x</span>
+
+    <span class="k">return</span> <span class="n">any</span><span class="p">(</span><span class="n">_compare</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">criteria</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+<h3 id="get0">get0</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">get0</span><span class="p">(</span>
+    <span class="n">dct</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Get first value.</p>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="n">def</span> <span class="n">get0</span><span class="p">(</span><span class="n">dct</span><span class="p">):</span>
+
+    <span class="ss">&quot;&quot;&quot;Get first value.&quot;&quot;&quot;</span>
+
+    <span class="o">#</span> <span class="n">Bad</span><span class="o">?</span><span class="p">:</span> <span class="n">dct</span><span class="p">[</span><span class="n">list</span><span class="p">(</span><span class="n">dct</span><span class="p">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]]</span>
+
+    <span class="k">return</span> <span class="k">next</span><span class="p">(</span><span class="n">iter</span><span class="p">(</span><span class="n">dct</span><span class="p">.</span><span class="k">values</span><span class="p">()))</span>
+</code></pre></div>
+
+</details>
+<h3 id="intersect">intersect</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">intersect</span><span class="p">(</span>
+    <span class="n">iterable</span><span class="p">,</span>
+    <span class="n">wanteds</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="n">def</span> <span class="k">intersect</span><span class="p">(</span><span class="n">iterable</span><span class="p">,</span> <span class="n">wanteds</span><span class="p">):</span>
+
+    <span class="k">return</span> <span class="n">_intersect</span><span class="p">(</span><span class="n">iterable</span><span class="p">,</span> <span class="n">wanteds</span><span class="p">,</span> <span class="n">inv</span><span class="o">=</span><span class="k">False</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+<h3 id="prodct">prodct</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">prodct</span><span class="p">(</span>
+    <span class="n">dct</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Cartesian/Outer product, for dicts.</p>
+<p>Example:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>list(prodct(dict(n=[1,2], c='ab')))
+[{'n': 1, 'c': 'a'},
+ {'n': 1, 'c': 'b'},
+ {'n': 2, 'c': 'a'},
+ {'n': 2, 'c': 'b'}]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Source: https://stackoverflow.com/a/40623158/38281.</p>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="n">def</span> <span class="n">prodct</span><span class="p">(</span><span class="n">dct</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;Cartesian/Outer product, for dicts.</span>
+
+<span class="sd">    Example:</span>
+
+<span class="sd">    &gt;&gt;&gt; list(prodct(dict(n=[1,2], c=&#39;ab&#39;)))</span>
+
+<span class="sd">    [{&#39;n&#39;: 1, &#39;c&#39;: &#39;a&#39;},</span>
+
+<span class="sd">     {&#39;n&#39;: 1, &#39;c&#39;: &#39;b&#39;},</span>
+
+<span class="sd">     {&#39;n&#39;: 2, &#39;c&#39;: &#39;a&#39;},</span>
+
+<span class="sd">     {&#39;n&#39;: 2, &#39;c&#39;: &#39;b&#39;}]</span>
+
+<span class="sd">    Source: https://stackoverflow.com/a/40623158/38281.&quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">dict</span><span class="p">(</span><span class="n">zip</span><span class="p">(</span><span class="n">dct</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="o">*</span><span class="n">dct</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+</code></pre></div>
+
+</details>
+<h3 id="transpose_dict_of_lists">transpose_dict_of_lists</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">transpose_dict_of_lists</span><span class="p">(</span>
+    <span class="n">DL</span><span class="p">,</span>
+    <span class="n">safe</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>This is essentially a one-liner.</p>
+<p>However, the validation of <code>safe=True</code> requires some effort.</p>
+<p>Example:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>DL = {chr(97+i): [i*10+j for j in range(2)] for i in range(3)}
+DL
+{'a': [0, 1], 'b': [10, 11], 'c': [20, 21]}
+transpose_dict_of_lists(DL)
+[{'a': 0, 'b': 10, 'c': 20}, {'a': 1, 'b': 11, 'c': 21}]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="n">def</span><span class="w"> </span><span class="n">transpose_dict_of_lists</span><span class="p">(</span><span class="n">DL</span><span class="p">,</span><span class="w"> </span><span class="n">safe</span><span class="o">=</span><span class="k">True</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">    </span><span class="ss">&quot;&quot;&quot;This is essentially a one-liner.</span>
+
+<span class="ss">    However, the validation of `safe=True` requires some effort.</span>
+
+<span class="ss">    Example:</span>
+
+<span class="ss">    &gt;&gt;&gt; DL = {chr(97+i): [i*10+j for j in range(2)] for i in range(3)}</span>
+
+<span class="ss">    &gt;&gt;&gt; DL</span>
+
+<span class="ss">    {&#39;a&#39;: [0, 1], &#39;b&#39;: [10, 11], &#39;c&#39;: [20, 21]}</span>
+
+<span class="ss">    &gt;&gt;&gt; transpose_dict_of_lists(DL)</span>
+
+<span class="ss">    [{&#39;a&#39;: 0, &#39;b&#39;: 10, &#39;c&#39;: 20}, {&#39;a&#39;: 1, &#39;b&#39;: 11, &#39;c&#39;: 21}]</span>
+
+<span class="ss">    &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">Validate</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="n">length</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nl">safe</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">lens</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">len(DL[k</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">DL</span><span class="err">]</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">assert</span><span class="w"> </span><span class="ow">all</span><span class="p">(</span><span class="n">lens</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">lens</span><span class="p">),</span><span class="w"> </span><span class="ss">&quot;Rows have unqual lengths.&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="nl">https</span><span class="p">:</span><span class="o">//</span><span class="n">stackoverflow</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">q</span><span class="o">/</span><span class="mi">5558418</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">dict(zip(DL, t)) for t in zip(*DL.values())</span><span class="o">]</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"></span>
+</code></pre></div>
+
+</details>
+<h3 id="transpose_dicts">transpose_dicts</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">transpose_dicts</span><span class="p">(</span>
+    <span class="n">DD</span><span class="p">,</span>
+    <span class="n">safe</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>As the name says.</p>
+<p>Incredibly, it is difficult to make this less verbose
+(the one-liner is unpredicable for non-rectangular cases)</p>
+<p>Example:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>DD = {chr(97+i): {chr(65+j):i*10+j for j in range(2)}
+                                       for i in range(3)}
+DD
+{'a': {'A': 0, 'B': 1}, 'b': {'A': 10, 'B': 11}, 'c': {'A': 20, 'B': 21}}</p>
+<p>transpose_dicts(DD)
+{'A': {'a': 0, 'b': 10, 'c': 20}, 'B': {'a': 1, 'b': 11, 'c': 21}}</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="n">def</span><span class="w"> </span><span class="n">transpose_dicts</span><span class="p">(</span><span class="n">DD</span><span class="p">,</span><span class="w"> </span><span class="n">safe</span><span class="o">=</span><span class="k">True</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">    </span><span class="ss">&quot;&quot;&quot;As the name says.</span>
+
+<span class="ss">    Incredibly, it is difficult to make this less verbose</span>
+
+<span class="ss">    (the one-liner is unpredicable for non-rectangular cases)</span>
+
+<span class="ss">    Example:</span>
+
+<span class="ss">    &gt;&gt;&gt; DD = {chr(97+i): {chr(65+j):i*10+j for j in range(2)}</span>
+
+<span class="ss">                                           for i in range(3)}</span>
+
+<span class="ss">    &gt;&gt;&gt; DD</span>
+
+<span class="ss">    {&#39;a&#39;: {&#39;A&#39;: 0, &#39;B&#39;: 1}, &#39;b&#39;: {&#39;A&#39;: 10, &#39;B&#39;: 11}, &#39;c&#39;: {&#39;A&#39;: 20, &#39;B&#39;: 21}}</span>
+
+<span class="ss">    &gt;&gt;&gt; transpose_dicts(DD)</span>
+
+<span class="ss">    {&#39;A&#39;: {&#39;a&#39;: 0, &#39;b&#39;: 10, &#39;c&#39;: 20}, &#39;B&#39;: {&#39;a&#39;: 1, &#39;b&#39;: 11, &#39;c&#39;: 21}}</span>
+
+<span class="ss">    &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{}</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;UNINITIALIZED&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nl">DD</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">Validate</span><span class="w"> </span><span class="k">column</span><span class="w"> </span><span class="n">keys</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">safe</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">prev</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="ss">&quot;UNINITIALIZED&quot;</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">assert</span><span class="w"> </span><span class="n">prev</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">DD</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="n">keys</span><span class="p">(),</span><span class="w"> </span><span class="n">f</span><span class="ss">&quot;Key mismatch for row {i}&quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DD</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="n">keys</span><span class="p">()</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">DD</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">new</span><span class="p">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="err">{}</span><span class="p">)</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DD</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"></span>
+</code></pre></div>
+
+</details>
+<h3 id="transpose_list_of_dicts">transpose_list_of_dicts</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">transpose_list_of_dicts</span><span class="p">(</span>
+    <span class="n">LD</span><span class="p">,</span>
+    <span class="n">safe</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Example:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p 0_="0]," 1_="1]" _0_="[0," _1_="[1," _a_:="'a':" _b_:="'b':">LD = [{chr(97+j):j for j in range(2)} for i in range(3)]
+LD
+[{'a': 0, 'b': 1}, {'a': 0, 'b': 1}, {'a': 0, 'b': 1}]
+transpose_list_of_dicts(LD)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="n">def</span><span class="w"> </span><span class="n">transpose_list_of_dicts</span><span class="p">(</span><span class="n">LD</span><span class="p">,</span><span class="w"> </span><span class="n">safe</span><span class="o">=</span><span class="k">True</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">    </span><span class="ss">&quot;&quot;&quot;</span>
+
+<span class="ss">    Example:</span>
+
+<span class="ss">    &gt;&gt;&gt; LD = [{chr(97+j):j for j in range(2)} for i in range(3)]</span>
+
+<span class="ss">    &gt;&gt;&gt; LD</span>
+
+<span class="ss">    [{&#39;a&#39;: 0, &#39;b&#39;: 1}, {&#39;a&#39;: 0, &#39;b&#39;: 1}, {&#39;a&#39;: 0, &#39;b&#39;: 1}]</span>
+
+<span class="ss">    &gt;&gt;&gt; transpose_list_of_dicts(LD)</span>
+
+<span class="ss">    {&#39;a&#39;: [0, 0, 0], &#39;b&#39;: [1, 1, 1]}</span>
+
+<span class="ss">    &quot;&quot;&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{}</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">&quot;UNINITIALIZED&quot;</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">D</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">enumerate</span><span class="p">(</span><span class="n">LD</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">Validate</span><span class="w"> </span><span class="k">column</span><span class="w"> </span><span class="n">keys</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">safe</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">prev</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="ss">&quot;UNINITIALIZED&quot;</span><span class="err">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="n">assert</span><span class="w"> </span><span class="n">prev</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">D</span><span class="p">.</span><span class="n">keys</span><span class="p">(),</span><span class="w"> </span><span class="n">f</span><span class="ss">&quot;Key mismatch for dict number {i}&quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">D</span><span class="p">.</span><span class="n">keys</span><span class="p">()</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nl">D</span><span class="p">:</span><span class="w"></span>
+
+<span class="w">            </span><span class="k">new</span><span class="p">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="err">[]</span><span class="p">).</span><span class="n">append</span><span class="p">(</span><span class="n">D</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"></span>
+</code></pre></div>
+
+</details>
+<h3 id="transpose_lists">transpose_lists</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">transpose_lists</span><span class="p">(</span>
+    <span class="n">LL</span><span class="p">,</span>
+    <span class="n">safe</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">as_list</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>This is essentially <code>zip(*LL)</code>.</p>
+<p>However, the validation of <code>safe=True</code> requires some effort,
+and converting to an explicit list requires another bit.</p>
+<p>Example:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>LL = [[i*10 + j for j in range(2)] for i in range(3)]
+LL
+[[0, 1], [10, 11], [20, 21]]
+transpose_lists(LL,as_list=True)
+[[0, 10, 20], [1, 11, 21]]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="n">def</span> <span class="n">transpose_lists</span><span class="p">(</span><span class="n">LL</span><span class="p">,</span> <span class="n">safe</span><span class="o">=</span><span class="k">True</span><span class="p">,</span> <span class="n">as_list</span><span class="o">=</span><span class="k">False</span><span class="p">):</span>
+
+    <span class="ss">&quot;&quot;&quot;This is essentially `zip(*LL)`.</span>
+
+<span class="ss">    However, the validation of `safe=True` requires some effort,</span>
+
+<span class="ss">    and converting to an explicit list requires another bit.</span>
+
+<span class="ss">    Example:</span>
+
+<span class="ss">    &gt;&gt;&gt; LL = [[i*10 + j for j in range(2)] for i in range(3)]</span>
+
+<span class="ss">    &gt;&gt;&gt; LL</span>
+
+<span class="ss">    [[0, 1], [10, 11], [20, 21]]</span>
+
+<span class="ss">    &gt;&gt;&gt; transpose_lists(LL,as_list=True)</span>
+
+<span class="ss">    [[0, 10, 20], [1, 11, 21]]</span>
+
+<span class="ss">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">safe</span><span class="p">:</span>
+
+        <span class="n">assert</span> <span class="k">all</span><span class="p">(</span><span class="n">len</span><span class="p">(</span><span class="n">LL</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="n">len</span><span class="p">(</span><span class="k">row</span><span class="p">)</span> <span class="k">for</span> <span class="k">row</span> <span class="k">in</span> <span class="n">LL</span><span class="p">)</span>
+
+    <span class="k">new</span> <span class="o">=</span> <span class="n">zip</span><span class="p">(</span><span class="o">*</span><span class="n">LL</span><span class="p">)</span>  <span class="o">#</span> <span class="n">transpose</span>
+
+    <span class="k">if</span> <span class="n">as_list</span><span class="p">:</span>
+
+        <span class="o">#</span> <span class="k">new</span> <span class="o">=</span> <span class="n">list</span><span class="p">(</span><span class="k">map</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="k">new</span><span class="p">))</span>
+
+        <span class="k">new</span> <span class="o">=</span> <span class="p">[</span><span class="n">list</span><span class="p">(</span><span class="k">row</span><span class="p">)</span> <span class="k">for</span> <span class="k">row</span> <span class="k">in</span> <span class="k">new</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="k">new</span>
+</code></pre></div>
+
+</details>
+<h3 id="transps">transps</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">transps</span><span class="p">(</span>
+    <span class="n">thing2d</span><span class="p">,</span>
+    <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Delegates transpose operation to the appropriate function.</p>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="n">def</span> <span class="n">transps</span><span class="p">(</span><span class="n">thing2d</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+    <span class="ss">&quot;&quot;&quot;Delegates transpose operation to the appropriate function.&quot;&quot;&quot;</span>
+
+    <span class="o">#</span> <span class="k">Is</span> <span class="n">dict</span><span class="o">?</span> <span class="n">Otherwise</span> <span class="n">assume</span> <span class="n">list</span> <span class="p">(</span><span class="n">tuple</span> <span class="n">also</span> <span class="n">works</span><span class="p">).</span>
+
+    <span class="n">dict1</span> <span class="o">=</span> <span class="n">isinstance</span><span class="p">(</span><span class="n">thing2d</span><span class="p">,</span> <span class="n">dict</span><span class="p">)</span>
+
+    <span class="n">item0</span> <span class="o">=</span> <span class="n">get0</span><span class="p">(</span><span class="n">thing2d</span><span class="p">)</span> <span class="k">if</span> <span class="n">dict1</span> <span class="k">else</span> <span class="n">thing2d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="o">#</span> <span class="n">fine</span> <span class="n">since</span> <span class="n">py3</span><span class="p">.</span><span class="mi">7</span>
+
+    <span class="n">dict2</span> <span class="o">=</span> <span class="n">isinstance</span><span class="p">(</span><span class="n">item0</span><span class="p">,</span> <span class="n">dict</span><span class="p">)</span>
+
+    <span class="k">if</span>       <span class="n">dict1</span> <span class="k">and</span>     <span class="n">dict2</span><span class="p">:</span> <span class="n">f</span> <span class="o">=</span> <span class="n">transpose_dicts</span>           <span class="o">#</span> <span class="n">noqa</span>
+
+    <span class="n">elif</span>     <span class="n">dict1</span> <span class="k">and</span> <span class="k">not</span> <span class="n">dict2</span><span class="p">:</span> <span class="n">f</span> <span class="o">=</span> <span class="n">transpose_dict_of_lists</span>   <span class="o">#</span> <span class="n">noqa</span>
+
+    <span class="n">elif</span> <span class="k">not</span> <span class="n">dict1</span> <span class="k">and</span>     <span class="n">dict2</span><span class="p">:</span> <span class="n">f</span> <span class="o">=</span> <span class="n">transpose_list_of_dicts</span>   <span class="o">#</span> <span class="n">noqa</span>
+
+    <span class="n">elif</span> <span class="k">not</span> <span class="n">dict1</span> <span class="k">and</span> <span class="k">not</span> <span class="n">dict2</span><span class="p">:</span> <span class="n">f</span> <span class="o">=</span> <span class="n">transpose_lists</span>           <span class="o">#</span> <span class="n">noqa</span>
+
+    <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">thing2d</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+<h2 id="classes">Classes</h2>
+<h3 id="aligneddict">AlignedDict</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">AlignedDict</span><span class="p">(</span>
+    <span class="o">/</span><span class="p">,</span>
+    <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Dict whose items are printed aligned and line-wrapped.</p>
+<p>Initialized and used just like a regular dict, since only
+difference to <code>dict</code> is <strong>str</strong> and <strong>repr</strong> (of which
+the other functions are auxiliaries and hidden).</p>
+<p>Also provides printopts. Example:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>a = np.arange(24)
+A = a.reshape((4,-1))
+dct = AlignedDict(a=a, b=99, z=3, A=A)
+dct["self"] = dct
+dct["sub"] = AlignedDict(x=1,text="lorem",self=dct)
+dct.printopts = dict(excluded=["z"], aliases={"A":"matrix"})
+print(repr(dct))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>Note on <code>printopts["indent"]</code>:
+- If not set,
+  then the keys are right-aligned (so that the colons line up),
+  and the values (including multi-line) are printed to their right,
+  allowing them to be placed on the same line as the key.
+  This setting is pretty, unless the keys are really long.
+- If set (to an integer), then the values are printed on a new line,
+  indented by that (unchanging) length (unless they're one-liners).</p>
+<p>A similar class is scipy.optimize.OptimizeResult</p>
+<p>See also:
+- pprint.pformat(x,linewidth,compact=True,sort_dicts=False)
+- json.dumps(x, indent=4, sort_keys=False, default=repr)
+But, both of these work recursively, which is NOT our aim.
+In particular, they need to implement behaviour for all types.</p>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="n">class</span> <span class="n">AlignedDict</span><span class="p">(</span><span class="n">dict</span><span class="p">)</span><span class="o">:</span>
+
+    <span class="s2">&quot;</span><span class="se">&quot;&quot;</span><span class="s2">Dict whose items are printed aligned and line-wrapped.</span>
+
+<span class="s2">    Initialized and used just like a regular dict, since only</span>
+
+<span class="s2">    difference to ``dict`` is __str__ and __repr__ (of which</span>
+
+<span class="s2">    the other functions are auxiliaries and hidden).</span>
+
+<span class="s2">    Also provides printopts. Example:</span>
+
+<span class="s2">    &gt;&gt;&gt; a = np.arange(24)</span>
+
+<span class="s2">    &gt;&gt;&gt; A = a.reshape((4,-1))</span>
+
+<span class="s2">    &gt;&gt;&gt; dct = AlignedDict(a=a, b=99, z=3, A=A)</span>
+
+<span class="s2">    &gt;&gt;&gt; dct[&quot;</span><span class="n">self</span><span class="s2">&quot;] = dct</span>
+
+<span class="s2">    &gt;&gt;&gt; dct[&quot;</span><span class="n">sub</span><span class="s2">&quot;] = AlignedDict(x=1,text=&quot;</span><span class="n">lorem</span><span class="s2">&quot;,self=dct)</span>
+
+<span class="s2">    &gt;&gt;&gt; dct.printopts = dict(excluded=[&quot;</span><span class="n">z</span><span class="s2">&quot;], aliases={&quot;</span><span class="n">A</span><span class="s2">&quot;:&quot;</span><span class="n">matrix</span><span class="s2">&quot;})</span>
+
+<span class="s2">    &gt;&gt;&gt; print(repr(dct))</span>
+
+<span class="s2">    Note on ``printopts[&quot;</span><span class="n">indent</span><span class="s2">&quot;]``:</span>
+
+<span class="s2">    - If not set,</span>
+
+<span class="s2">      then the keys are right-aligned (so that the colons line up),</span>
+
+<span class="s2">      and the values (including multi-line) are printed to their right,</span>
+
+<span class="s2">      allowing them to be placed on the same line as the key.</span>
+
+<span class="s2">      This setting is pretty, unless the keys are really long.</span>
+
+<span class="s2">    - If set (to an integer), then the values are printed on a new line,</span>
+
+<span class="s2">      indented by that (unchanging) length (unless they&#39;re one-liners).</span>
+
+<span class="s2">    A similar class is scipy.optimize.OptimizeResult</span>
+
+<span class="s2">    See also:</span>
+
+<span class="s2">    - pprint.pformat(x,linewidth,compact=True,sort_dicts=False)</span>
+
+<span class="s2">    - json.dumps(x, indent=4, sort_keys=False, default=repr)</span>
+
+<span class="s2">    But, both of these work recursively, which is NOT our aim.</span>
+
+<span class="s2">    In particular, they need to implement behaviour for all types.</span>
+
+<span class="s2">    </span><span class="se">&quot;&quot;</span><span class="s2">&quot;</span>
+
+    <span class="nv">@_init</span>
+
+    <span class="n">def</span> <span class="n">__str__</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="o">:</span>
+
+        <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="n">_repr</span><span class="p">(</span><span class="n">is_repr</span><span class="o">=</span><span class="no">False</span><span class="p">)</span>
+
+    <span class="nv">@_init</span>
+
+    <span class="n">def</span> <span class="n">__repr__</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="o">:</span>
+
+        <span class="k">return</span> <span class="n">self</span><span class="p">.</span><span class="n">_repr</span><span class="p">(</span><span class="n">is_repr</span><span class="o">=</span><span class="no">True</span><span class="p">)</span>
+
+    <span class="n">def</span> <span class="n">_repr</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">is_repr</span><span class="o">=</span><span class="no">False</span><span class="p">)</span><span class="o">:</span>
+
+        <span class="s2">&quot;</span><span class="se">&quot;&quot;</span><span class="s2">Both __str__ and __repr__ in one!</span>
+
+<span class="s2">        Note: if ``self`` is printed as part of a standard object,</span>
+
+<span class="s2">        __repr__ gets called, not __str__.</span><span class="se">&quot;&quot;</span><span class="s2">&quot;</span>
+
+        <span class="c1"># Constants</span>
+
+        <span class="n">sep</span> <span class="o">=</span> <span class="s2">&quot;: &quot;</span>
+
+        <span class="n">bullet</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span> <span class="k">if</span> <span class="n">is_repr</span> <span class="k">else</span> <span class="s2">&quot;  - &quot;</span>
+
+        <span class="n">comma</span> <span class="o">=</span> <span class="s2">&quot;,&quot;</span> <span class="k">if</span> <span class="n">is_repr</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="n">spinechar</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span> <span class="k">if</span> <span class="n">is_repr</span> <span class="k">else</span> <span class="s2">&quot;¦&quot;</span>  <span class="c1"># ¦, ┆, │, ⎸, ▏</span>
+
+        <span class="n">format_key</span> <span class="o">=</span> <span class="n">repr</span> <span class="k">if</span> <span class="n">is_repr</span> <span class="k">else</span> <span class="n">str</span>
+
+        <span class="n">format_val</span> <span class="o">=</span> <span class="n">repr</span> <span class="k">if</span> <span class="n">is_repr</span> <span class="k">else</span> <span class="n">str</span>
+
+        <span class="c1"># Apply print options</span>
+
+        <span class="n">dct</span> <span class="o">=</span> <span class="n">self</span>
+
+        <span class="n">opt</span> <span class="o">=</span> <span class="n">getattr</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="s2">&quot;printopts&quot;</span><span class="p">,</span> <span class="err">{}</span><span class="p">)</span>
+
+        <span class="n">dct</span> <span class="o">=</span> <span class="n">intersect</span><span class="p">(</span><span class="n">dct</span><span class="p">,</span>  <span class="n">opt</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="s2">&quot;included&quot;</span><span class="p">,</span> <span class="n">dct</span><span class="p">))</span>
+
+        <span class="n">dct</span> <span class="o">=</span> <span class="n">complement</span><span class="p">(</span><span class="n">dct</span><span class="p">,</span> <span class="n">opt</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="s2">&quot;excluded&quot;</span><span class="p">,</span> <span class="err">[]</span><span class="p">))</span>
+
+        <span class="n">dct</span> <span class="o">=</span> <span class="err">{</span><span class="n">opt</span><span class="p">.</span><span class="k">get</span><span class="p">(</span><span class="s2">&quot;aliases&quot;</span><span class="p">,</span> <span class="err">{}</span><span class="p">).</span><span class="k">get</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span><span class="o">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="k">in</span> <span class="n">dct</span><span class="p">.</span><span class="n">items</span><span class="p">()</span><span class="err">}</span>
+
+        <span class="k">if</span> <span class="s2">&quot;indent&quot;</span> <span class="k">in</span> <span class="n">opt</span><span class="o">:</span>
+
+            <span class="c1"># LEFT-aligned keys -- indent is fixed, and val is always on newline</span>
+
+            <span class="n">val_indent</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span> <span class="o">*</span> <span class="n">len</span><span class="p">(</span><span class="n">bullet</span><span class="p">)</span> <span class="o">+</span> <span class="n">spinechar</span><span class="p">.</span><span class="n">ljust</span><span class="p">(</span><span class="n">opt</span><span class="err">[</span><span class="s2">&quot;indent&quot;</span><span class="err">]</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="o">:</span>
+
+            <span class="c1"># RIGHT-aligned keys -- indent ~ on keys, and val can start on key&#39;s line</span>
+
+            <span class="n">kWidth</span> <span class="o">=</span> <span class="nf">max</span><span class="p">(</span><span class="err">[</span><span class="n">len</span><span class="p">(</span><span class="n">format_key</span><span class="p">(</span><span class="n">k</span><span class="p">))</span> <span class="k">for</span> <span class="n">k</span> <span class="k">in</span> <span class="n">dct</span><span class="err">]</span><span class="p">,</span> <span class="k">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+            <span class="n">val_indent</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span> <span class="o">*</span> <span class="n">len</span><span class="p">(</span><span class="n">bullet</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">*</span> <span class="n">kWidth</span> <span class="o">+</span> <span class="n">spinechar</span><span class="p">.</span><span class="n">ljust</span><span class="p">(</span><span class="n">len</span><span class="p">(</span><span class="n">sep</span><span class="p">))</span>
+
+            <span class="n">def</span> <span class="n">format_key</span><span class="p">(</span><span class="k">key</span><span class="p">,</span> <span class="k">old</span><span class="o">=</span><span class="n">format_key</span><span class="p">)</span><span class="o">:</span>
+
+                <span class="k">return</span> <span class="k">old</span><span class="p">(</span><span class="k">key</span><span class="p">).</span><span class="n">rjust</span><span class="p">(</span><span class="n">kWidth</span><span class="p">)</span>
+
+        <span class="n">def</span> <span class="n">iRepr</span><span class="p">(</span><span class="k">key</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span><span class="o">:</span>
+
+            <span class="n">trim</span> <span class="o">=</span> <span class="n">len</span><span class="p">(</span><span class="n">val_indent</span> <span class="o">+</span> <span class="n">comma</span><span class="p">)</span>
+
+            <span class="c1"># Try placing on 1 line, but use max() to insure against wrapping</span>
+
+            <span class="k">if</span> <span class="s2">&quot;indent&quot;</span> <span class="k">in</span> <span class="n">opt</span> <span class="k">and</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="k">not</span> <span class="k">in</span> <span class="n">format_val</span><span class="p">(</span><span class="n">val</span><span class="p">))</span><span class="o">:</span>
+
+                <span class="n">trim</span> <span class="o">=</span> <span class="nf">max</span><span class="p">(</span><span class="n">trim</span><span class="p">,</span> <span class="n">len</span><span class="p">(</span><span class="n">bullet</span> <span class="o">+</span> <span class="n">format_key</span><span class="p">(</span><span class="k">key</span><span class="p">)</span> <span class="o">+</span> <span class="n">sep</span> <span class="o">+</span> <span class="n">comma</span><span class="p">))</span>
+
+            <span class="k">with</span> <span class="n">_shorten_linewidth_by</span><span class="p">(</span><span class="n">trim</span><span class="p">)</span><span class="o">:</span>
+
+                <span class="n">val</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">_wrap_item</span><span class="p">(</span><span class="n">format_val</span><span class="p">(</span><span class="n">val</span><span class="p">))</span>
+
+            <span class="n">val</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">val_indent</span><span class="p">).</span><span class="k">join</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="s2">&quot;indent&quot;</span> <span class="k">in</span> <span class="n">opt</span> <span class="k">and</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="k">in</span> <span class="n">val</span><span class="p">)</span><span class="o">:</span>
+
+                <span class="n">val</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">val_indent</span> <span class="o">+</span> <span class="n">val</span>  <span class="c1"># 1st line also on new line</span>
+
+            <span class="k">return</span> <span class="n">format_key</span><span class="p">(</span><span class="k">key</span><span class="p">)</span> <span class="o">+</span> <span class="n">sep</span> <span class="o">+</span> <span class="n">val</span>
+
+        <span class="c1"># dct --&gt; text</span>
+
+        <span class="n">items</span> <span class="o">=</span> <span class="err">[</span><span class="n">iRepr</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="k">in</span> <span class="n">dct</span><span class="p">.</span><span class="n">items</span><span class="p">()</span><span class="err">]</span>
+
+        <span class="c1"># Sort</span>
+
+        <span class="n">items</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">_sort</span><span class="p">(</span><span class="n">zip</span><span class="p">(</span><span class="n">dct</span><span class="p">,</span> <span class="n">items</span><span class="p">))</span>
+
+        <span class="c1"># Join</span>
+
+        <span class="n">txt</span> <span class="o">=</span> <span class="p">(</span><span class="n">comma</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">bullet</span><span class="p">).</span><span class="k">join</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">:</span>
+
+            <span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">bullet</span> <span class="o">+</span> <span class="n">txt</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+        <span class="c1"># Add braces, etc</span>
+
+        <span class="k">if</span> <span class="n">is_repr</span><span class="o">:</span>
+
+            <span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;{&quot;</span> <span class="o">+</span> <span class="n">txt</span> <span class="o">+</span> <span class="s2">&quot;}&quot;</span>
+
+        <span class="k">return</span> <span class="n">txt</span>
+
+    <span class="c1"># AUX FUNCTIONS</span>
+
+    <span class="nv">@staticmethod</span>
+
+    <span class="n">def</span> <span class="n">_wrap_item</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span><span class="o">:</span>
+
+        <span class="s2">&quot;</span><span class="se">&quot;&quot;</span><span class="s2">Wrap txt.</span><span class="se">&quot;&quot;</span><span class="s2">&quot;</span>
+
+        <span class="k">lines</span> <span class="o">=</span> <span class="n">txt</span><span class="p">.</span><span class="n">splitlines</span><span class="p">()</span>
+
+        <span class="n">ll</span> <span class="o">=</span> <span class="err">[</span><span class="n">textwrap</span><span class="p">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">_linewidth</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="k">in</span> <span class="k">lines</span><span class="err">]</span>  <span class="c1"># list of lists</span>
+
+        <span class="n">hang</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span>  <span class="c1"># No need to shorten_lw for this</span>
+
+        <span class="n">ll</span> <span class="o">=</span> <span class="err">[</span><span class="n">w</span><span class="err">[</span><span class="o">:</span><span class="mi">1</span><span class="err">]</span> <span class="o">+</span> <span class="err">[</span><span class="n">hang</span> <span class="o">+</span> <span class="n">line</span> <span class="k">for</span> <span class="n">line</span> <span class="k">in</span> <span class="n">w</span><span class="err">[</span><span class="mi">1</span><span class="o">:</span><span class="err">]]</span> <span class="k">for</span> <span class="n">w</span> <span class="k">in</span> <span class="n">ll</span><span class="err">]</span>
+
+        <span class="n">ll</span> <span class="o">=</span> <span class="err">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">w</span> <span class="k">in</span> <span class="n">ll</span> <span class="k">for</span> <span class="n">k</span> <span class="k">in</span> <span class="n">w</span><span class="err">]</span>  <span class="c1"># flatten list-of-lists</span>
+
+        <span class="k">return</span> <span class="n">ll</span>
+
+    <span class="n">def</span> <span class="n">_sort</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">dict_and_texts</span><span class="p">)</span><span class="o">:</span>
+
+        <span class="n">ORDR</span> <span class="o">=</span> <span class="n">getattr</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="s2">&quot;printopts&quot;</span><span class="p">,</span> <span class="err">{}</span><span class="p">).</span><span class="k">get</span><span class="p">(</span><span class="s2">&quot;ordering&quot;</span><span class="p">,</span> <span class="err">[]</span><span class="p">)</span> <span class="k">or</span> <span class="err">[]</span>
+
+        <span class="k">reverse</span> <span class="o">=</span> <span class="n">getattr</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="s2">&quot;printopts&quot;</span><span class="p">,</span> <span class="err">{}</span><span class="p">).</span><span class="k">get</span><span class="p">(</span><span class="s2">&quot;reverse&quot;</span><span class="p">,</span> <span class="no">False</span><span class="p">)</span>
+
+        <span class="n">def</span> <span class="n">indexer</span><span class="p">(</span><span class="n">key_text</span><span class="p">)</span><span class="o">:</span>
+
+            <span class="k">key</span><span class="p">,</span> <span class="kt">text</span> <span class="o">=</span> <span class="n">key_text</span>
+
+            <span class="k">if</span> <span class="k">not</span> <span class="n">isinstance</span><span class="p">(</span><span class="n">ORDR</span><span class="p">,</span> <span class="n">str</span><span class="p">)</span><span class="o">:</span>  <span class="c1"># assume list</span>
+
+                <span class="c1"># Manual ordering.</span>
+
+                <span class="k">if</span> <span class="k">key</span> <span class="k">in</span> <span class="n">ORDR</span><span class="o">:</span>
+
+                    <span class="c1"># -10000 =&gt; priority</span>
+
+                    <span class="n">idx</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10000</span> <span class="o">+</span> <span class="n">ORDR</span><span class="p">.</span><span class="k">index</span><span class="p">(</span><span class="k">key</span><span class="p">)</span>
+
+                <span class="k">else</span><span class="o">:</span>
+
+                    <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># neutral</span>
+
+            <span class="n">elif</span> <span class="s2">&quot;line&quot;</span> <span class="k">in</span> <span class="n">ORDR</span><span class="o">:</span>
+
+                <span class="c1"># Line-number count</span>
+
+                <span class="n">idx</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="kt">text</span><span class="p">.</span><span class="nf">count</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+                <span class="c1"># Line-length count</span>
+
+                <span class="n">idx</span> <span class="o">+=</span> <span class="nf">max</span><span class="p">(</span><span class="n">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="k">in</span> <span class="kt">text</span><span class="p">.</span><span class="n">splitlines</span><span class="p">())</span>
+
+            <span class="n">elif</span> <span class="s2">&quot;alpha&quot;</span> <span class="k">in</span> <span class="n">ORDR</span><span class="o">:</span>
+
+                <span class="c1"># Alphabetic (tuple compare)</span>
+
+                <span class="n">idx</span> <span class="o">=</span> <span class="k">key</span><span class="p">.</span><span class="nf">lower</span><span class="p">()</span>
+
+            <span class="k">return</span> <span class="n">idx</span>
+
+        <span class="n">pairs</span> <span class="o">=</span> <span class="n">sorted</span><span class="p">(</span><span class="n">dict_and_texts</span><span class="p">,</span> <span class="k">key</span><span class="o">=</span><span class="n">indexer</span><span class="p">,</span> <span class="k">reverse</span><span class="o">=</span><span class="k">reverse</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="err">[</span><span class="kt">text</span> <span class="k">for</span> <span class="k">key</span><span class="p">,</span> <span class="kt">text</span> <span class="k">in</span> <span class="n">pairs</span><span class="err">]</span>
+</code></pre></div>
+
+</details>
+<hr />
+<h4 id="ancestors-in-mro">Ancestors (in MRO)</h4>
+<ul>
+<li>builtins.dict</li>
+</ul>
+<h4 id="descendants">Descendants</h4>
+<ul>
+<li>dapper.dict_tools.DotDict</li>
+</ul>
+<h4 id="methods">Methods</h4>
+<h5 id="clear">clear</h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">clear</span><span class="p">(</span>
+    <span class="o">...</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>D.clear() -&gt; None.  Remove all items from D.</p>
+<h5 id="copy">copy</h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">copy</span><span class="p">(</span>
+    <span class="o">...</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>D.copy() -&gt; a shallow copy of D</p>
+<h5 id="fromkeys">fromkeys</h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">fromkeys</span><span class="p">(</span>
+    <span class="n">iterable</span><span class="p">,</span>
+    <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="o">/</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Create a new dictionary with keys from iterable and values set to value.</p>
+<h5 id="get">get</h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">get</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">key</span><span class="p">,</span>
+    <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="o">/</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Return the value for key if key is in the dictionary, else default.</p>
+<h5 id="items">items</h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">items</span><span class="p">(</span>
+    <span class="o">...</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>D.items() -&gt; a set-like object providing a view on D's items</p>
+<h5 id="keys">keys</h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">keys</span><span class="p">(</span>
+    <span class="o">...</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>D.keys() -&gt; a set-like object providing a view on D's keys</p>
+<h5 id="pop">pop</h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">pop</span><span class="p">(</span>
+    <span class="o">...</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>D.pop(k[,d]) -&gt; v, remove specified key and return the corresponding value.
+If key is not found, d is returned if given, otherwise KeyError is raised</p>
+<h5 id="popitem">popitem</h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">popitem</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="o">/</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Remove and return a (key, value) pair as a 2-tuple.</p>
+<p>Pairs are returned in LIFO (last-in, first-out) order.
+Raises KeyError if the dict is empty.</p>
+<h5 id="setdefault">setdefault</h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">setdefault</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">key</span><span class="p">,</span>
+    <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="o">/</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Insert key with a value of default if key is not in the dictionary.</p>
+<p>Return the value for key if key is in the dictionary, else default.</p>
+<h5 id="update">update</h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">update</span><span class="p">(</span>
+    <span class="o">...</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>D.update([E, ]**F) -&gt; None.  Update D from dict/iterable E and F.
+If E is present and has a .keys() method, then does:  for k in E: D[k] = E[k]
+If E is present and lacks a .keys() method, then does:  for k, v in E: D[k] = v
+In either case, this is followed by: for k in F:  D[k] = F[k]</p>
+<h5 id="values">values</h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">values</span><span class="p">(</span>
+    <span class="o">...</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>D.values() -&gt; an object providing a view on D's values</p>
+<h3 id="dotdict">DotDict</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">DotDict</span><span class="p">(</span>
+    <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Dict that <em>also</em> supports attribute (dot) access.</p>
+<p>Benefit compared to a dict:</p>
+<ul>
+<li>Verbosity of <code>d['a']</code> vs. <code>d.a</code>.</li>
+<li>Includes <code>AlignedDict</code>.</li>
+</ul>
+<p>DotDict is not terribly hackey, and is quite robust.
+Similar constructs are quite common, eg IPython/utils/ipstruct.py.</p>
+<p>Main inspiration: https://stackoverflow.com/a/14620633</p>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="n">class</span> <span class="n">DotDict</span><span class="p">(</span><span class="n">AlignedDict</span><span class="p">)</span><span class="o">:</span>
+
+    <span class="s2">&quot;</span><span class="se">&quot;&quot;</span><span class="s2">Dict that *also* supports attribute (dot) access.</span>
+
+<span class="s2">    Benefit compared to a dict:</span>
+
+<span class="s2">     - Verbosity of ``d[&#39;a&#39;]`` vs. ``d.a``.</span>
+
+<span class="s2">     - Includes ``AlignedDict``.</span>
+
+<span class="s2">    DotDict is not terribly hackey, and is quite robust.</span>
+
+<span class="s2">    Similar constructs are quite common, eg IPython/utils/ipstruct.py.</span>
+
+<span class="s2">    Main inspiration: https://stackoverflow.com/a/14620633</span>
+
+<span class="s2">    </span><span class="se">&quot;&quot;</span><span class="s2">&quot;</span>
+
+    <span class="n">printopts</span> <span class="o">=</span> <span class="n">dict</span><span class="p">(</span><span class="n">excluded</span><span class="o">=</span><span class="err">[</span><span class="s2">&quot;printopts&quot;</span><span class="err">]</span><span class="p">)</span>
+
+    <span class="n">def</span> <span class="n">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">:</span>
+
+        <span class="s2">&quot;</span><span class="se">&quot;&quot;</span><span class="s2">Init like a normal dict.</span><span class="se">&quot;&quot;</span><span class="s2">&quot;</span>
+
+        <span class="k">super</span><span class="p">().</span><span class="n">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># Make a (normal) dict</span>
+
+        <span class="n">self</span><span class="p">.</span><span class="n">__dict__</span> <span class="o">=</span> <span class="n">self</span>  <span class="c1"># Assign it to self.__dict__</span>
+</code></pre></div>
+
+</details>
+<hr />
+<h4 id="ancestors-in-mro_1">Ancestors (in MRO)</h4>
+<ul>
+<li>dapper.dict_tools.AlignedDict</li>
+<li>builtins.dict</li>
+</ul>
+<h4 id="descendants_1">Descendants</h4>
+<ul>
+<li>dapper.stats.Avrgs</li>
+</ul>
+<h4 id="class-variables">Class variables</h4>
+<div class="codehilite"><pre><span></span><code><span class="n">printopts</span>
+</code></pre></div>
+
+<h4 id="methods_1">Methods</h4>
+<h5 id="clear_1">clear</h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">clear</span><span class="p">(</span>
+    <span class="o">...</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>D.clear() -&gt; None.  Remove all items from D.</p>
+<h5 id="copy_1">copy</h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">copy</span><span class="p">(</span>
+    <span class="o">...</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>D.copy() -&gt; a shallow copy of D</p>
+<h5 id="fromkeys_1">fromkeys</h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">fromkeys</span><span class="p">(</span>
+    <span class="n">iterable</span><span class="p">,</span>
+    <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="o">/</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Create a new dictionary with keys from iterable and values set to value.</p>
+<h5 id="get_1">get</h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">get</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">key</span><span class="p">,</span>
+    <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="o">/</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Return the value for key if key is in the dictionary, else default.</p>
+<h5 id="items_1">items</h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">items</span><span class="p">(</span>
+    <span class="o">...</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>D.items() -&gt; a set-like object providing a view on D's items</p>
+<h5 id="keys_1">keys</h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">keys</span><span class="p">(</span>
+    <span class="o">...</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>D.keys() -&gt; a set-like object providing a view on D's keys</p>
+<h5 id="pop_1">pop</h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">pop</span><span class="p">(</span>
+    <span class="o">...</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>D.pop(k[,d]) -&gt; v, remove specified key and return the corresponding value.
+If key is not found, d is returned if given, otherwise KeyError is raised</p>
+<h5 id="popitem_1">popitem</h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">popitem</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="o">/</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Remove and return a (key, value) pair as a 2-tuple.</p>
+<p>Pairs are returned in LIFO (last-in, first-out) order.
+Raises KeyError if the dict is empty.</p>
+<h5 id="setdefault_1">setdefault</h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">setdefault</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">key</span><span class="p">,</span>
+    <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="o">/</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Insert key with a value of default if key is not in the dictionary.</p>
+<p>Return the value for key if key is in the dictionary, else default.</p>
+<h5 id="update_1">update</h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">update</span><span class="p">(</span>
+    <span class="o">...</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>D.update([E, ]**F) -&gt; None.  Update D from dict/iterable E and F.
+If E is present and has a .keys() method, then does:  for k in E: D[k] = E[k]
+If E is present and lacks a .keys() method, then does:  for k, v in E: D[k] = v
+In either case, this is followed by: for k in F:  D[k] = F[k]</p>
+<h5 id="values_1">values</h5>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">values</span><span class="p">(</span>
+    <span class="o">...</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>D.values() -&gt; an object providing a view on D's values</p>
+<h3 id="niceprint">NicePrint</h3>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">NicePrint</span><span class="p">(</span>
+    <span class="o">/</span><span class="p">,</span>
+    <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>Provides <strong>repr</strong> and <strong>str</strong> by AlignedDict(vars(self)).</p>
+<p>Example usage:</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>class MyClass(NicePrint):
+    printopts = NicePrint.printopts.copy()
+    printopts["excluded"] += ["my_hidden_var"]
+    printopts["aliases"] = {"asdf":"better_name"}
+    ...</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<details class="example"><summary>View Source</summary><div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="n">NicePrint</span><span class="p">:</span>
+
+    <span class="sd">&quot;&quot;&quot;Provides __repr__ and __str__ by AlignedDict(vars(self)).</span>
+
+<span class="sd">    Example usage:</span>
+
+<span class="sd">    &gt;&gt;&gt; class MyClass(NicePrint):</span>
+
+<span class="sd">    &gt;&gt;&gt;     printopts = NicePrint.printopts.copy()</span>
+
+<span class="sd">    &gt;&gt;&gt;     printopts[&quot;excluded&quot;] += [&quot;my_hidden_var&quot;]</span>
+
+<span class="sd">    &gt;&gt;&gt;     printopts[&quot;aliases&quot;] = {&quot;asdf&quot;:&quot;better_name&quot;}</span>
+
+<span class="sd">    &gt;&gt;&gt;     ...</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># _underscored = re.compile(&#39;^_&#39;)</span>
+
+    <span class="n">_underscored</span> <span class="o">=</span> <span class="n">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)</span> <span class="c1"># noqa</span>
+
+    <span class="n">printopts</span> <span class="o">=</span> <span class="n">dict</span><span class="p">(</span><span class="n">excluded</span><span class="o">=</span><span class="p">[</span><span class="n">_underscored</span><span class="p">,</span> <span class="s2">&quot;printopts&quot;</span><span class="p">])</span>
+
+    <span class="n">def</span> <span class="n">_repr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">is_repr</span><span class="o">=</span><span class="n">True</span><span class="p">):</span>
+
+        <span class="n">cls_name</span> <span class="o">=</span> <span class="n">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__name__</span> <span class="o">+</span> <span class="s2">&quot;(&quot;</span> <span class="k">if</span> <span class="n">is_repr</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="n">dct</span> <span class="o">=</span> <span class="n">AlignedDict</span><span class="p">(</span><span class="n">vars</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+
+        <span class="n">dct</span><span class="o">.</span><span class="n">printopts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">printopts</span>
+
+        <span class="n">with</span> <span class="n">_shorten_linewidth_by</span><span class="p">(</span><span class="n">len</span><span class="p">(</span><span class="n">cls_name</span><span class="p">)):</span>
+
+            <span class="n">txt</span> <span class="o">=</span> <span class="n">repr</span><span class="p">(</span><span class="n">dct</span><span class="p">)</span> <span class="k">if</span> <span class="n">is_repr</span> <span class="k">else</span> <span class="nb">str</span><span class="p">(</span><span class="n">dct</span><span class="p">)</span>
+
+            <span class="n">txt</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">*</span> <span class="n">len</span><span class="p">(</span><span class="n">cls_name</span><span class="p">))</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">txt</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span>
+
+        <span class="k">return</span> <span class="n">cls_name</span> <span class="o">+</span> <span class="n">txt</span> <span class="o">+</span> <span class="p">(</span><span class="s2">&quot;)&quot;</span> <span class="k">if</span> <span class="n">is_repr</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+    <span class="err">@</span><span class="n">_init</span>
+
+    <span class="n">def</span> <span class="n">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_repr</span><span class="p">(</span><span class="n">is_repr</span><span class="o">=</span><span class="n">False</span><span class="p">)</span>
+
+    <span class="err">@</span><span class="n">_init</span>
+
+    <span class="n">def</span> <span class="n">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_repr</span><span class="p">(</span><span class="n">is_repr</span><span class="o">=</span><span class="n">True</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+<hr />
+<h4 id="descendants_2">Descendants</h4>
+<ul>
+<li>dapper.tools.series.StatPrint</li>
+<li>dapper.tools.viz.FigSaver</li>
+<li>dapper.tools.randvars.RV</li>
+<li>dapper.admin.HiddenMarkovModel</li>
+<li>dapper.admin.Operator</li>
+</ul>
+<h4 id="class-variables_1">Class variables</h4>
+<div class="codehilite"><pre><span></span><code><span class="n">printopts</span>
+</code></pre></div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../data_management/" title="Data Management" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Data Management
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../dpr_config/" title="Dpr Config" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Dpr Config
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Powered by
+        <a href="http://timothycrosley.github.io/portray">portray.</a>
+        You too can
+        <a href="http://timothycrosley.github.io/portray">
+          portray</a>
+        your Python project well using automatic documentation.
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/vendor.2d1db4bd.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.6627ddf3.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,922 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.14">
+    
+    
+      
+        <title>DAPPER</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.d3202873.min.css">
+      
+        <link rel="stylesheet" href="assets/stylesheets/palette.ff0a5ce4.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#4cae4f">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="green" data-md-color-accent="lightgreen">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#highlights" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="." title="DAPPER" class="md-header-nav__button md-logo" aria-label="DAPPER">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            DAPPER
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Home
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/nansencenter/DAPPER/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    DAPPER
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="DAPPER" class="md-nav__button md-logo" aria-label="DAPPER">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    DAPPER
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/nansencenter/DAPPER/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    DAPPER
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="." title="Home" class="md-nav__link md-nav__link--active">
+      Home
+    </a>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Reference
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Reference" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Dapper
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Dapper" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        <span class="md-nav__icon md-icon"></span>
+        Dapper
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="reference/dapper/admin/" title="Admin" class="md-nav__link">
+      Admin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="reference/dapper/data_management/" title="Data Management" class="md-nav__link">
+      Data Management
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="reference/dapper/dict_tools/" title="Dict Tools" class="md-nav__link">
+      Dict Tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="reference/dapper/dpr_config/" title="Dpr Config" class="md-nav__link">
+      Dpr Config
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="reference/dapper/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="reference/dapper/stats/" title="Stats" class="md-nav__link">
+      Stats
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/nansencenter/DAPPER/edit/master/README.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <!--
+!      ___   _   ___ ___ ___ ___ 
+!     |   \ /_\ | _ \ _ \ __| _ \
+!     | |) / _ \|  _/  _/ _||   /
+!     |___/_/ \_\_| |_| |___|_|_\
+! 
+! 
+-->
+
+<p>DAPPER is a set of templates for benchmarking the performance of
+data assimilation (DA) methods.
+The tests provide experimental support and guidance for
+new developments in DA. Example diagnostics:</p>
+<p><img alt="EnKF - Lorenz'63" src="./dpr_data/figs/anims/DAPPER_illust_v2.jpg" /></p>
+<p>The typical set-up is a <strong>synthetic (twin) experiment</strong>, where you</p>
+<ul>
+<li>specify a</li>
+<li>dynamic model<code>*</code></li>
+<li>observational model<code>*</code></li>
+<li>use these to generate a synthetic</li>
+<li>"truth"</li>
+<li>and observations thereof<code>*</code></li>
+<li>assess how different DA methods perform in estimating the truth,
+  given the above starred (<code>*</code>) items.</li>
+</ul>
+<h1 id="highlights">Highlights</h1>
+<p>DAPPER enables the numerical investigation of DA methods
+through a variety of typical test cases and statistics.
+It (a) reproduces numerical benchmarks results reported in the literature,
+and (b) facilitates comparative studies,
+thus promoting the (a) reliability and (b) relevance of the results.
+For example, this figure is generated by <code>example_3.py</code> and is a
+reproduction from this <a href="https://books.google.no/books?id=FtDZDQAAQBAJ&amp;q=figure+6.6">book on DA</a>.</p>
+<p><img alt="Comparative benchmarks with Lorenz'96 plotted as a function of the ensemble size (N)" src="./dpr_data/figs/anims/ex3.svg" /></p>
+<p>DAPPER is (c) open source, written in Python, and (d) focuses on readability;
+this promotes the (c) reproduction and (d) dissemination of the underlying science,
+and makes it easy to adapt and extend.
+In summary, it is well suited for teaching and fundamental DA research.
+Also see its <a href="#alternative-projects">drawbacks</a>.</p>
+<h1 id="installation">Installation</h1>
+<p>Works on Linux/Windows/Mac.</p>
+<ol>
+<li>
+<p><strong>Prerequisite</strong>: Python&gt;=3.8.<br />
+   If you're not an admin or expert:<br />
+   1a. Install Python with <a href="https://www.anaconda.com/download">Anaconda</a>.<br />
+   1b. Use the <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html#starting-conda">Anaconda terminal</a>
+   to run the commands below.</p>
+</li>
+<li>
+<p><strong>Install</strong>:<br />
+   Download and extract (or <code>git clone</code>) DAPPER,<br />
+<code>cd</code> into the resulting folder
+   <em>(ensure you're in the folder with a <code>setup.py</code> file)</em>:<br />
+<code>pip install -e .</code> (don't forget the <code>.</code>).
+   If you want multiprocessing options, install with:<br />
+<code>pip install -e .[MP]</code></p>
+</li>
+<li>
+<p><strong>Test</strong> by running: <code>python example_1.py</code>  </p>
+</li>
+</ol>
+<p>Step 2 can be replaced by running
+<code>pip install da-dapper</code>
+but this is not recommended since this hides away DAPPER
+as a library in your python path.</p>
+<p>If the installation fails, you probably need to <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html#managing-environments">create a new Python environment</a>.</p>
+<h1 id="getting-started">Getting started</h1>
+<p>Read, run, and understand the scripts <code>example_{1,2,3}.py</code>.
+Then, get familiar with the code.</p>
+<p>The <a href="https://dapper.readthedocs.io/en/latest/">documentation</a>
+provide rendered docstrings, but are far from complete.</p>
+<p>Alternatively, see <a href="https://github.com/nansencenter/DA-tutorials">DA-tutorials</a>
+for an intro to DA.</p>
+<h1 id="methods">Methods</h1>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Literature reproduced</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EnKF <sup>1</sup></td>
+<td>Sak08, Hot15</td>
+</tr>
+<tr>
+<td>EnKF-N</td>
+<td>Boc12, Boc15</td>
+</tr>
+<tr>
+<td>EnKS, EnRTS</td>
+<td>Raa16b</td>
+</tr>
+<tr>
+<td>iEnKS / iEnKF / EnRML / ES-MDA <sup>2</sup></td>
+<td>Sak12, Boc12, Boc14</td>
+</tr>
+<tr>
+<td>LETKF, local &amp; serial EAKF</td>
+<td>Boc11</td>
+</tr>
+<tr>
+<td>Sqrt. model noise methods</td>
+<td>Raa15</td>
+</tr>
+<tr>
+<td>Particle filter (bootstrap) <sup>3</sup></td>
+<td>Boc10</td>
+</tr>
+<tr>
+<td>Optimal/implicit Particle filter  <sup>3</sup></td>
+<td>Boc10</td>
+</tr>
+<tr>
+<td>NETF</td>
+<td>Töd15, Wil16</td>
+</tr>
+<tr>
+<td>Rank histogram filter (RHF)</td>
+<td>And10</td>
+</tr>
+<tr>
+<td>4D-Var</td>
+<td></td>
+</tr>
+<tr>
+<td>3D-Var</td>
+<td></td>
+</tr>
+<tr>
+<td>Extended KF</td>
+<td></td>
+</tr>
+<tr>
+<td>Optimal interpolation</td>
+<td></td>
+</tr>
+<tr>
+<td>Climatology</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://dapper.readthedocs.io/en/latest/bib/bib.html">References</a></p>
+<p><sup>1</sup>: Stochastic, DEnKF (i.e. half-update), ETKF (i.e. sym. sqrt.).
+Serial forms are also available.<br />
+Tuned with inflation and "random, orthogonal rotations".<br />
+<sup>2</sup>: Also supports the bundle version,
+and "EnKF-N"-type inflation.<br />
+<sup>3</sup>: Resampling: multinomial
+(including systematic/universal and residual).<br />
+The particle filter is tuned with "effective-N monitoring",
+"regularization/jittering" strength, and more.</p>
+<p>For a list of ready-made experiments with suitable,
+tuned settings for a given method (e.g. the <code>iEnKS</code>), use gnu's grep:</p>
+<div class="codehilite"><pre><span></span><code>$ <span class="nb">cd</span> dapper/mods
+$ grep -r <span class="s2">&quot;iEnKS.*(&quot;</span>
+</code></pre></div>
+
+<h1 id="models">Models</h1>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Lin?</th>
+<th>TLM?</th>
+<th>PDE?</th>
+<th>Phys.dim.</th>
+<th>State len</th>
+<th>Lyap≥0</th>
+<th>Implementer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linear Advect. (LA)</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>1d</td>
+<td>1000 *</td>
+<td>51</td>
+<td>Evensen/Raanes</td>
+</tr>
+<tr>
+<td>DoublePendulum</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>0d</td>
+<td>4</td>
+<td>2</td>
+<td>Matplotlib/Raanes</td>
+</tr>
+<tr>
+<td>Ikeda</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>0d</td>
+<td>2</td>
+<td>1</td>
+<td>Raanes</td>
+</tr>
+<tr>
+<td>LotkaVolterra</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>0d</td>
+<td>5 *</td>
+<td>1</td>
+<td>Wikipedia/Raanes</td>
+</tr>
+<tr>
+<td>Lorenz63</td>
+<td>No</td>
+<td>Yes</td>
+<td>"Yes"</td>
+<td>0d</td>
+<td>3</td>
+<td>2</td>
+<td>Sakov</td>
+</tr>
+<tr>
+<td>Lorenz84</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>0d</td>
+<td>3</td>
+<td>2</td>
+<td>Raanes</td>
+</tr>
+<tr>
+<td>Lorenz96</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>1d</td>
+<td>40 *</td>
+<td>13</td>
+<td>Raanes</td>
+</tr>
+<tr>
+<td>LorenzUV</td>
+<td>No</td>
+<td>Yes</td>
+<td>No</td>
+<td>2x 1d</td>
+<td>256 + 8 *</td>
+<td>≈60</td>
+<td>Raanes</td>
+</tr>
+<tr>
+<td>Kuramoto-Sivashinsky</td>
+<td>No</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>1d</td>
+<td>128 *</td>
+<td>11</td>
+<td>Kassam/Raanes</td>
+</tr>
+<tr>
+<td>Quasi-Geost (QG)</td>
+<td>No</td>
+<td>No</td>
+<td>Yes</td>
+<td>2d</td>
+<td>129²≈17k</td>
+<td>≈140</td>
+<td>Sakov</td>
+</tr>
+</tbody>
+</table>
+<p>*: flexible; set as necessary</p>
+<p>The models are found as subdirectories within <code>dapper/mods</code>.
+A model should be defined in a file named <code>core.py</code>,
+and illustrated by a file named <code>demo.py</code>.
+Ideally, both of these files do not rely on the rest of DAPPER.
+<a href="https://dapper.readthedocs.io/en/latest/adding.html">More info</a>.</p>
+<p>Most of the other files within a model subdirectory
+are usually named <code>authorYEAR.py</code> and define a <code>HMM</code> object,
+which holds the settings of a specific twin experiment,
+using that model,
+as detailed in the corresponding author/year's paper.
+At the bottom of each such file should be (in comments)
+a list of suitable, tuned settings for various DA methods,
+along with their expected, average rmse.a score for that experiment.
+The complete list of included experiment files can be obtained with
+gnu's <code>find</code>:</p>
+<div class="codehilite"><pre><span></span><code>$ <span class="nb">cd</span> dapper/mods
+$ find . -iname <span class="s2">&quot;[a-z]*20[0-9].py&quot;</span>
+</code></pre></div>
+
+<p>Some of these files contain settings that have been used in several papers.
+As mentioned <a href="#Methods">above</a>,
+DAPPER reproduces literature results.
+There are also results in the literature that DAPPER does not reproduce.
+Typically, this means that the published results are incorrect.</p>
+<h1 id="alternative-projects">Alternative projects</h1>
+<p>DAPPER is aimed at research and teaching (see discussion up top).
+Example of limitations:</p>
+<ul>
+<li>It is not suited for very big models (&gt;60k unknowns).</li>
+<li>Time-dependent error covariances and changes in lengths of state/obs
+  (although the Dyn and Obs models may otherwise be time-dependent).</li>
+<li>Non-uniform time sequences not fully supported.</li>
+</ul>
+<p>Also, DAPPER comes with no guarantees/support.
+Therefore, if you have an <em>operational</em> (real-world) application,
+such as WRF,
+you should look into one of the alternatives,
+sorted by approximate project size.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Developers</th>
+<th>Purpose (approximately)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.image.ucar.edu/DAReS/DART/">DART</a></td>
+<td>NCAR</td>
+<td>Operational, general</td>
+</tr>
+<tr>
+<td><a href="http://pdaf.awi.de/trac/wiki">PDAF</a></td>
+<td>AWI</td>
+<td>Operational, general</td>
+</tr>
+<tr>
+<td><a href="https://www.jcsda.noaa.gov/index.php">JEDI</a></td>
+<td>JCSDA (NOAA, NASA, ++)</td>
+<td>Operational, general (in develpmt?)</td>
+</tr>
+<tr>
+<td><a href="http://ert.nr.no/ert/index.php/Main_Page">ERT</a></td>
+<td>Statoil</td>
+<td>Operational, history matching (Petroleum)</td>
+</tr>
+<tr>
+<td><a href="http://www.openda.org/">OpenDA</a></td>
+<td>TU Delft</td>
+<td>Operational, general</td>
+</tr>
+<tr>
+<td><a href="http://verdandi.sourceforge.net/">Verdandi</a></td>
+<td>INRIA</td>
+<td>Biophysical DA</td>
+</tr>
+<tr>
+<td><a href="http://www.geos.ed.ac.uk/~lfeng/">PyOSSE</a></td>
+<td>Edinburgh, Reading</td>
+<td>Earth-observation DA</td>
+</tr>
+<tr>
+<td><a href="http://www.data-assimilation.net/">SANGOMA</a></td>
+<td>Conglomerate*</td>
+<td>Unify DA research</td>
+</tr>
+<tr>
+<td><a href="http://www.met.reading.ac.uk/~darc/empire/index.php">EMPIRE</a></td>
+<td>Reading (Met)</td>
+<td>Research (high-dim)</td>
+</tr>
+<tr>
+<td><a href="http://www.dhigroup.com/">MIKE</a></td>
+<td>DHI</td>
+<td>Oceanographic. Commercial?</td>
+</tr>
+<tr>
+<td><a href="http://modb.oce.ulg.ac.be/mediawiki/index.php/Ocean_Assimilation_Kit">OAK</a></td>
+<td>Liège</td>
+<td>Oceaonagraphic</td>
+</tr>
+<tr>
+<td><a href="https://www5.obs-mip.fr/sirocco/assimilation-tools/sequoia-data-assimilation-platform/">Siroco</a></td>
+<td>OMP</td>
+<td>Oceaonagraphic</td>
+</tr>
+<tr>
+<td><a href="https://github.com/rlabbe/filterpy">FilterPy</a></td>
+<td>R. Labbe</td>
+<td>Engineering, general intro to Kalman filter</td>
+</tr>
+<tr>
+<td><a href="https://github.com/judithyueli/DASoftware">DASoftware</a></td>
+<td>Yue Li, Stanford</td>
+<td>Matlab, large-scale</td>
+</tr>
+<tr>
+<td><a href="https://github.com/kingaa/pomp">Pomp</a></td>
+<td>U of Michigan</td>
+<td>R, general state-estimation</td>
+</tr>
+<tr>
+<td><a href="http://uni.no/en/uni-cipr/">PyIT</a></td>
+<td>CIPR</td>
+<td>Real-world petroleum DA (?)</td>
+</tr>
+<tr>
+<td>Datum</td>
+<td>Raanes</td>
+<td>Matlab, personal publications</td>
+</tr>
+<tr>
+<td><a href="http://enkf.nersc.no/">EnKF-Matlab</a></td>
+<td>Sakov</td>
+<td>Matlab, personal publications and intro</td>
+</tr>
+<tr>
+<td><a href="https://github.com/sakov/enkf-c">EnKF-C</a></td>
+<td>Sakov</td>
+<td>C, light-weight EnKF, off-line</td>
+</tr>
+<tr>
+<td>IEnKS code</td>
+<td>Bocquet</td>
+<td>Python, personal publications</td>
+</tr>
+<tr>
+<td><a href="http://hickmank.github.io/pyda/">pyda</a></td>
+<td>Hickman</td>
+<td>Python, personal publications</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>EnKF-Matlab</code> and <code>IEnKS</code> codes have been inspirational
+in the development of DAPPER.</p>
+<p>*: AWI/Liege/CNRS/NERSC/Reading/Delft</p>
+<h1 id="contributors">Contributors</h1>
+<p>Patrick N. Raanes,
+Colin Grudzien,
+Maxime Tondeur,
+Remy Dubois</p>
+<p>If you use this software in a publication, please cite as follows.</p>
+<div class="codehilite"><pre><span></span><code><span class="nc">@misc</span><span class="p">{</span><span class="nl">raanes2018dapper</span><span class="p">,</span>
+  <span class="na">author</span> <span class="p">=</span> <span class="s">{Patrick N. Raanes and others}</span><span class="p">,</span>
+  <span class="na">title</span>  <span class="p">=</span> <span class="s">{nansencenter/DAPPER: Version 0.8}</span><span class="p">,</span>
+  <span class="na">month</span>  <span class="p">=</span> <span class="nv">December</span><span class="p">,</span>
+  <span class="na">year</span>   <span class="p">=</span> <span class="m">2018</span><span class="p">,</span>
+  <span class="na">doi</span>    <span class="p">=</span> <span class="s">{10.5281/zenodo.2029296}</span><span class="p">,</span>
+  <span class="na">url</span>    <span class="p">=</span> <span class="s">{https://doi.org/10.5281/zenodo.2029296}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h1 id="publication-list">Publication list</h1>
+<ul>
+<li><a href="https://www.geosci-model-dev-discuss.net/gmd-2019-136/">https://www.geosci-model-dev-discuss.net/gmd-2019-136/</a></li>
+<li><a href="https://rmets.onlinelibrary.wiley.com/doi/abs/10.1002/qj.3386">https://rmets.onlinelibrary.wiley.com/doi/abs/10.1002/qj.3386</a></li>
+<li><a href="https://www.nonlin-processes-geophys-discuss.net/npg-2019-10">https://www.nonlin-processes-geophys-discuss.net/npg-2019-10</a></li>
+</ul>
+<h1 id="powered-by">Powered by</h1>
+<div>
+<img src="./dpr_data/figs/logos/python.png"  alt="Python"  height="100">
+<img src="./dpr_data/figs/logos/numpy.png"   alt="Numpy"   height="100">
+<img src="./dpr_data/figs/logos/pandas.png"  alt="Pandas"  height="100">
+<img src="./dpr_data/figs/logos/jupyter.png" alt="Jupyter" height="100">
+</div>
+
+<!--
+Badges.
+
+[![DOI](https://zenodo.org/badge/62547494.svg)]
+(https://zenodo.org/badge/latestdoi/62547494)
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]
+(./licence.txt)
+-->
+
+<!-- markdownlint-configure-file
+{
+  "hr-style": {
+    "style": "---"
+  },
+  "no-trailing-spaces": false,
+  "no-inline-html": {
+    "allowed_elements" : [ "sup", "img", "div" ]
+  },
+  "commands-show-output": false,
+  "first-line-h1": false
+}
+-->
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+        
+          <a href="reference/dapper/admin/" title="Admin" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Admin
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Powered by
+        <a href="http://timothycrosley.github.io/portray">portray.</a>
+        You too can
+        <a href="http://timothycrosley.github.io/portray">
+          portray</a>
+        your Python project well using automatic documentation.
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="assets/javascripts/vendor.2d1db4bd.min.js"></script>
+      <script src="assets/javascripts/bundle.6627ddf3.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: ".",
+          features: [],
+          search: Object.assign({
+            worker: "assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
