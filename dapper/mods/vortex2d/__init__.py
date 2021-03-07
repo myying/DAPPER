@@ -12,9 +12,9 @@ import dapper.mods as modelling
 class model_config:
 
     dx       = 9000  ##meter
-    nx       = 64
+    nx       = 128
     dt       = 300   ##second
-    dtout    = 3600
+    dtout    = 7200
     Rmw      = 10
     Vmax     = 20
     gen_rate = 2.0
@@ -84,46 +84,46 @@ def laplacian(f, dx):
     return ((np.roll(f, -1, axis=0) + np.roll(f, 1, axis=0) + np.roll(f, -1, axis=1) + np.roll(f, 1, axis=1)) - 4.0*f)/(dx**2)
 
 def wind_cutoff(wind, max_wind):
-  buff = 10.0
-  f = 0.0
-  if (wind < max_wind-buff):
-    f = 1.0
-  if (wind >= max_wind-buff and wind < max_wind):
-    f = (max_wind - wind) / buff
-  return f
+    buff = 10.0
+    f = 0.0
+    if (wind < max_wind-buff):
+        f = 1.0
+    if (wind >= max_wind-buff and wind < max_wind):
+        f = (max_wind - wind) / buff
+    return f
 
 def forcing(u, v, zeta, diss, gen, dx):
-  fzeta = -(u*deriv_x(zeta, dx)+v*deriv_y(zeta, dx)) + gen*zeta + diss*laplacian(zeta, dx)
-  return fzeta
+    fzeta = -(u*deriv_x(zeta, dx)+v*deriv_y(zeta, dx)) + gen*zeta + diss*laplacian(zeta, dx)
+    return fzeta
 
 def psi2uv(psi, dx):
-  u = -(np.roll(psi, -1, axis=1) - psi)/dx
-  v = (np.roll(psi, -1, axis=0) - psi)/dx
-  return u, v
+    u = -(np.roll(psi, -1, axis=1) - psi)/dx
+    v = (np.roll(psi, -1, axis=0) - psi)/dx
+    return u, v
 
 def uv2zeta(u, v, dx):
-  zeta = (v - np.roll(v, 1, axis=0) - u + np.roll(u, 1, axis=1))/dx
-  return zeta
+    zeta = (v - np.roll(v, 1, axis=0) - u + np.roll(u, 1, axis=1))/dx
+    return zeta
 
 def psi2zeta(psi, dx):
-  zeta = ((np.roll(psi, -1, axis=0) + np.roll(psi, 1, axis=0) + np.roll(psi, -1, axis=1) + np.roll(psi, 1, axis=1)) - 4.0*psi)/(dx**2)
-  return zeta
+    zeta = ((np.roll(psi, -1, axis=0) + np.roll(psi, 1, axis=0) + np.roll(psi, -1, axis=1) + np.roll(psi, 1, axis=1)) - 4.0*psi)/(dx**2)
+    return zeta
 
 def zeta2uv(zeta, dx):
-  psi = zeta2psi(zeta, dx)
-  u, v = psi2uv(psi, dx)
-  return u, v
+    psi = zeta2psi(zeta, dx)
+    u, v = psi2uv(psi, dx)
+    return u, v
 
 def zeta2psi(zeta, dx):
-  psi = np.zeros(zeta.shape)
-  niter = 1000
-  for i in range(niter):
-    psi = ((np.roll(psi, -1, axis=0) + np.roll(psi, 1, axis=0) + np.roll(psi, -1, axis=1) + np.roll(psi, 1, axis=1)) - zeta*(dx**2))/4.0
-  return psi
+    psi = np.zeros(zeta.shape)
+    niter = 1000
+    for i in range(niter):
+        psi = ((np.roll(psi, -1, axis=0) + np.roll(psi, 1, axis=0) + np.roll(psi, -1, axis=1) + np.roll(psi, 1, axis=1)) - zeta*(dx**2))/4.0
+    return psi
 
 def uv2wspd(u, v):
-  wspd = np.sqrt(u**2 + v**2)
-  return wspd
+    wspd = np.sqrt(u**2 + v**2)
+    return wspd
 
 def gaussian_random_field(pk, n):
     nup = int(n/2)
@@ -162,5 +162,5 @@ def gen_sample(model, nSamples, SpinUp, Spacing):
 sample_filename = modelling.rc.dirs.samples/'vortex2d_samples.npz'
 if not sample_filename.is_file():
     print('Did not find sample file', sample_filename, '. Generating...')
-    sample = gen_sample(model_config(), 100, 0, 1)
+    sample = gen_sample(model_config(), 50, 0, 1)
     np.savez(sample_filename, sample=sample)
