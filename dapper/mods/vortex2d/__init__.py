@@ -15,7 +15,7 @@ class model_config:
     nx       = 64
     dt       = 300   ##second
     dtout    = 3600
-    Rmw      = 5
+    Rmw      = 10
     Vmax     = 20
     gen_rate = 2.0
     diss     = 5e3
@@ -53,7 +53,7 @@ class model_config:
         q = np.zeros((self.nx, self.nx))
         ##storm location stored in p
         p = np.array([iStorm, jStorm])
-        x = self.vectorize(u0, v0, q, p)
+        x = self.vectorize(u+u0, v+v0, q, p)
         return x
 
     def step(self, x, t, dtout):
@@ -162,5 +162,5 @@ def gen_sample(model, nSamples, SpinUp, Spacing):
 sample_filename = modelling.rc.dirs.samples/'vortex2d_samples.npz'
 if not sample_filename.is_file():
     print('Did not find sample file', sample_filename, '. Generating...')
-    sample = gen_sample(model_config(), 100, 10, 1)
+    sample = gen_sample(model_config(), 100, 0, 1)
     np.savez(sample_filename, sample=sample)
